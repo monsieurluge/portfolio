@@ -1,0 +1,68 @@
+:root {
+    /* theme */
+    --fg-high: #020200;
+    --fg-med: #362a1e;
+    --fg-low: #ad4230;
+    --fg-inv: #000000;
+    --background: #000000;
+    --bg-high: #85827d;
+    --bg-med: #93908b;
+    --bg-low: #b4b1ac;
+    --bg-inv: #ffffff;
+    /* texts */
+    --heading-font: alumni, sans-serif;
+    --heading-font-size: 2.2rem;
+    --main-menu-font-size: 1.5rem;
+    --main-menu-font: action, sans-serif;
+    --nav-font-size: 1rem;
+    --nav-font: action, sans-serif;
+    --title-font-size: 1.5rem;
+    --title-font: action, sans-serif;
+    --title-padding-horizontal: 2rem;
+    --title-padding-vertical: .5rem;
+    /* spacing and sizes */
+    --content-spacing-horizontal: 3rem;
+    --content-spacing-vertical: 5rem;
+    --content-width: 760px;
+    --item-spacing-vertical: 2rem;
+    --paragraph-spacing-vertical: 1rem;
+    --title-spacing-vertical: 4rem;
+}
+
+@font-face {
+    font-family: 'action';
+    src:
+        url('/fonts/Action of the Time New.ttf')
+        format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'alumni';
+    src:
+        url('/fonts/AlumniSansPinstripe-Regular.ttf')
+        format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    color: var(--fg-high);
+    background-color: var(--background);
+}
+
+body {
+    margin: 0;
+}
+
+h1, h2 {
+    font-family: var(--heading-font);
+    font-size: var(--heading-font-size);
+}

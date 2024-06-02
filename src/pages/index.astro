@@ -1,25 +1,41 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import '../styles/homepage.css'
 ---
 
-<html lang="fr">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/png" sizes="128x128" href="/favicon.png" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>monsieurluge</title>
-    </head>
-    <body>
-        <p>monsieurluge.dev</p>
-        <p>//todo</p>
-    </body>
-</html>
-
-<style>
-    html {
-        background-color: #e2dedb;
-    }
-    body {
-        color: #241f1c;
-    }
-</style>
+<BaseLayout>
+    <div id="home-content">
+        <section data-name="development">
+            <div class="pattern"></div>
+            <menu>
+                <h1>développement</h1>
+                <ul>
+                    <li><a href="/projects">projets</a></li>
+                    <li><a href="/games">jeux</a></li>
+                </ul>
+            </menu>
+            <slot name="development-content" />
+        </section>
+        <section data-name="me">
+            <menu>
+                <h1>monsieurluge.dev</h1>
+                <ul>
+                    <li><a href="/resume">curriculum vitae</a></li>
+                    <li><a href="/contact">contact</a></li>
+                </ul>
+            </menu>
+            <slot name="me-content" />
+        </section>
+        <section data-name="hobbies">
+            <div class="pattern"></div>
+            <menu>
+                <h1>loisirs</h1>
+                <ul>
+                    <li><a href="/photography">photographie</a></li>
+                    <li><a href="/boardgames">jeux de société</a></li>
+                </ul>
+            </menu>
+            <slot name="hobbies-content" />
+        </section>
+    </div>
+</BaseLayout>
