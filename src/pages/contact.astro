@@ -1,11 +1,11 @@
 ---
-import AboutMeLayout from '../layouts/AboutMeLayout.astro'
+import PageLayout from '../layouts/PageLayout.astro'
 
 const title = 'Contact'
 const webFormAccessKey = 'e62af265-1882-4863-9324-8adc20fc732a'
 ---
 
-<AboutMeLayout title={title}>
+<PageLayout category="about-me" title={title}>
     <form method="POST" id="form">
         <input type="hidden" name="access_key" value={webFormAccessKey}>
         <input type="hidden" name="subject" value="[monsieurluge.dev] Prise de contact depuis le portfolio">
@@ -18,7 +18,7 @@ const webFormAccessKey = 'e62af265-1882-4863-9324-8adc20fc732a'
         <button type="submit">envoyer</button>
         <div id="result"></div>
     </form>
-</AboutMeLayout>
+</PageLayout>
 
 <script>
     const form = document.getElementById('form') as HTMLFormElement

@@ -1,11 +1,11 @@
 ---
 import '../styles/global.css'
 
-const { title } = Astro.props
+const { category, title } = Astro.props
 ---
 
 <!DOCTYPE html>
-<html>
+<html class={category}>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,3 +15,17 @@ const { title } = Astro.props
     <slot />
 </body>
 </html>
+
+<style>
+    html.development {
+        background-image: url(/images/wallpaper-home-development.jpg);
+    }
+
+    html.hobby {
+        background-image: url(/images/wallpaper-home-hobbies.jpg);
+    }
+
+    html.about-me {
+        background-image: url(/images/wallpaper-aboutme.jpg);
+    }
+</style>

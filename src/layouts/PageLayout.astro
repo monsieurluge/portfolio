@@ -3,10 +3,10 @@ import Navigation from '../components/Navigation.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import '../styles/page.css'
 
-const { title } = Astro.props
+const { category, title } = Astro.props
 ---
 
-<BaseLayout title={title}>
+<BaseLayout category={category} title={title}>
     <Navigation />
     <main>
         <h1>{title}</h1>
