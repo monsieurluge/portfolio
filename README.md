@@ -1,6 +1,6 @@
 # monsieurluge.dev
 
-Portfolio de Laurent Vergé.
+Portfolio perso.
 
 ## Crédits images
 
