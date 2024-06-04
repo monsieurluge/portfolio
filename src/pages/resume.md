@@ -1,9 +1,9 @@
 ---
 title: 'CV'
-pubDate: 2024-05-23
+updated: 2024-05-23
 description: 'Curriculum Vitae'
 author: 'Laurent Vergé'
-tags: ['resume', 'cv']
+tags: ['resume']
 layout: '../layouts/ResumeLayout.astro'
 ---
 

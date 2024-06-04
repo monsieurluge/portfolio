@@ -1,0 +1,52 @@
+---
+import { Image } from 'astro:assets'
+
+const { cover, coverAlt, tags, title, url } = Astro.props
+const byLength = (s1: String, s2: String) => s2.length - s1.length
+---
+
+<article>
+    <a href={url}><Image src={cover} alt={coverAlt} width=200 height=200 /></a>
+    <a class="title" href={url}>{title}</a>
+    <ul class="tags">{tags.sort(byLength).map((tag: String) => <li>{tag}</li>)}</ul>
+</article>
+
+<style>
+    article {
+        position: relative;
+    }
+
+    img {
+        display: block;
+        margin: 0 0 4px;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .title {
+        display: block;
+        width: 200px;
+        margin: 0;
+        padding: .5rem 1rem;
+        color: #000000;
+        text-decoration: none;
+        background-color: #ffffff;
+        border-radius: 0 0 8px 8px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    .tags {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    li {
+        font-size: 12px;
+        font-family: monospace;
+    }
+</style>

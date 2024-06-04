@@ -1,0 +1,19 @@
+---
+import PageLayout from './PageLayout.astro'
+
+const { frontmatter } = Astro.props
+---
+
+<PageLayout category={frontmatter.category} title={frontmatter.title}>
+    <slot />
+    {frontmatter.updated && <footer>contenu mis à jour le {frontmatter.updated}</footer>}
+</PageLayout>
+
+<style>
+    footer {
+        margin: 3rem 0;
+        padding-top: 0.5rem;
+        border-top: 1px solid #ffffff;
+        text-align: right;
+    }
+</style>
