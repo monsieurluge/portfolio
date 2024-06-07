@@ -1,70 +1,23 @@
 ---
-import Navigation from '../components/Navigation.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
-import '../styles/page.css'
 
-const { category, title } = Astro.props
+const { title } = Astro.props
 ---
 
-<BaseLayout category={category} title={title}>
-    <Navigation />
-    <main>
+<BaseLayout title={title}>
+    <article>
         <h1>{title}</h1>
         <slot />
-    </main>
+    </article>
 </BaseLayout>
 
 <style>
-    html {
-        background:
-            url(/images/wallpaper-profile.jpg)
-            no-repeat
-            center
-            center
-            fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-    }
-
-    html::after {
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        content: "";
-        height: 100%;
-        background:
-            #00000060
-            url(/images/dot-pattern.png)
-            repeat;
-        z-index: 1;
-    }
-
-    main {
-        position: relative;
-        max-width: var(--content-width);
-        margin: 0 auto;
-        padding:
-            var(--content-spacing-vertical)
-            var(--content-spacing-horizontal);
-        color: #ffffff;
-        z-index: 2;
-    }
-
     h1 {
-        display: inline-block;
-        max-width: 500px;
-        margin: 0 0 var(--title-spacing-vertical);
-        padding:
-            var(--title-padding-vertical)
-            var(--title-padding-horizontal);
-        font-family: var(--main-menu-font);
-        font-size: var(--title-font-size);
-        font-weight: normal;
-        color: #ffffff;
-        border: 1px solid #ffffff;
+        margin: 0 0 var(--content-spacing);
+        padding: 1rem 2rem;
+        font-family: chopin, sans-serif;
+        font-size: 2rem;
+        color: var(--background);
+        background-color: var(--fg-high);
     }
 </style>

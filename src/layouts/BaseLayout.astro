@@ -1,31 +1,30 @@
 ---
+import Sidebar from '../components/Sidebar.astro'
 import '../styles/global.css'
 
-const { category, title } = Astro.props
+const { title } = Astro.props
 ---
 
 <!DOCTYPE html>
-<html class={category}>
+<html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>monsieurluge.dev{title && ` - ${title.toLowerCase()}`}</title>
 </head>
 <body>
-    <slot />
+    <main>
+        <Sidebar />
+        <slot />
+    </main>
 </body>
 </html>
 
 <style>
-    html.development {
-        background-image: url(/images/wallpaper-home-development.jpg);
-    }
-
-    html.hobby {
-        background-image: url(/images/wallpaper-home-hobbies.jpg);
-    }
-
-    html.about-me {
-        background-image: url(/images/wallpaper-aboutme.jpg);
+    main {
+        position: relative;
+        width: 600px;
+        margin: var(--content-spacing) auto;
+        padding: 0 var(--content-spacing);
     }
 </style>

@@ -1,0 +1,52 @@
+.markdown-article {
+    font-size: 1.1rem;
+    line-height: 1.4rem;
+}
+
+.markdown-article h1 {
+    margin: 0;
+    padding: 1rem 2rem;
+    font-family: chopin, sans-serif;
+    font-size: 2rem;
+    line-height: 3rem;
+    color: var(--background);
+    background-color: var(--fg-high);
+}
+
+.markdown-article h2,
+.markdown-article h3,
+.markdown-article h4,
+.markdown-article h5,
+.markdown-article h6 {
+    font-family: chopin, sans-serif;
+    font-size: 2rem;
+    line-height: 2rem;
+    margin: var(--content-spacing) 0;
+}
+
+.markdown-article h2 {
+    border-bottom: 1px solid var(--fg-low);
+}
+
+.markdown-article img {
+    max-width: calc(var(--content-width) - var(--content-spacing) * 2);
+    height: auto;
+}
+
+.markdown-article p:nth-child(2) {
+    margin: 2px 0;
+}
+
+.markdown-article img:first-child {
+    width: calc(var(--content-width) - var(--content-spacing) * 2);
+}
+
+.markdown-article footer {
+    margin-top: calc(var(--content-spacing) * 2);
+    padding: 4px 0;
+    font-family: monospace;
+    font-size: .8rem;
+    line-height: .8rem;
+    color: var(--fg-low);
+    border-top: 1px solid var(--fg-low);
+}

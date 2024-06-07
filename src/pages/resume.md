@@ -1,10 +1,10 @@
 ---
-title: 'CV'
-updated: 2024-05-23
-description: 'Curriculum Vitae'
 author: 'Laurent Vergé'
+description: 'Curriculum Vitae'
+layout: '../layouts/ArticleLayout.astro'
 tags: ['resume']
-layout: '../layouts/ResumeLayout.astro'
+title: 'CV'
+lastUpdate: 2024-05-23
 ---
 
 # Ingénieur en développement Web

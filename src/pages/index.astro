@@ -1,41 +1,67 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
-import '../styles/homepage.css'
 ---
 
-<BaseLayout>
-    <div id="home-content">
-        <section data-name="development">
-            <div class="pattern"></div>
-            <menu>
-                <h1>développement</h1>
-                <ul>
-                    <li><a href="/projects">projets</a></li>
-                    <li><a href="/games">jeux</a></li>
-                </ul>
-            </menu>
-            <slot name="development-content" />
-        </section>
-        <section data-name="me">
-            <menu>
-                <h1>monsieurluge.dev</h1>
-                <ul>
-                    <li><a href="/resume">curriculum vitae</a></li>
-                    <li><a href="/contact">contact</a></li>
-                </ul>
-            </menu>
-            <slot name="me-content" />
-        </section>
-        <section data-name="hobbies">
-            <div class="pattern"></div>
-            <menu>
-                <h1>loisirs</h1>
-                <ul>
-                    <li><a href="/photography">photographie</a></li>
-                    <li><a href="/boardgames">jeux de société</a></li>
-                </ul>
-            </menu>
-            <slot name="hobbies-content" />
-        </section>
-    </div>
+<BaseLayout title="accueil">
+    <h1>Laurent Vergé<span class="aka">aka</span><span class="pseudo">monsieurluge</span></h1>
+    <p class="subtitle">développeur web senior</p>
+    <section class="about-me">
+        <h2>full stack</h2>
+        <p>Linux • git • Docker • CI-CD</p>
+        <p>Node • Nest • Vue</p>
+        <p>PHP • Symfony • Vue • JQuery</p>
+    </section>
+    <section class="about-me">
+        <h2>agile</h2>
+        <p>accompagne les équipes & les clients</p>
+        <p>adapte les pratiques aux besoins</p>
+        <p>valorise la proximité avec le client</p>
+    </section>
+    <section class="about-me">
+        <h2>mentor</h2>
+        <p>partage les résultats de veille technologique</p>
+        <p>invite à l'échange via le pair programming, la revue de code</p>
+        <p>aide au changement d'habitudes, de process, de technos</p>
+    </section>
 </BaseLayout>
+
+<style>
+    h1 {
+        margin: 0;
+        font-size: 3rem;
+        font-family: chopin, sans-serif;
+    }
+
+    .aka {
+        font-size: 1.4rem;
+        filter: opacity(30%);
+    }
+
+    .pseudo {
+        font-size: 1.4rem;
+        filter: opacity(76%);
+    }
+
+    .subtitle {
+        margin: -.5rem 0 8rem;
+        font-family: monospace;
+    }
+
+    .about-me {
+        margin: 2px 0;
+        padding: 1rem 2rem;
+        background-color: var(--bg-low);
+        border-radius: 3px;
+    }
+
+    .about-me h2 {
+        margin: 0;
+        font-family: chopin;
+        font-size: 1.8rem;
+    }
+
+    .about-me p {
+        margin: 0;
+        color: var(--fg-med);
+    }
+</style>

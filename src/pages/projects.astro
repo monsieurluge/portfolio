@@ -1,38 +1,30 @@
 ---
+import { getCollection } from 'astro:content'
 import ArticleCard from '../components/ArticleCard.astro'
 import PageLayout from '../layouts/PageLayout.astro'
 
-import portfolioScreenshot from '../assets/portfolio.jpg'
-import resultLogo from '../assets/result-logo.png'
-
-const articles = await Astro.glob('../pages/projects/*.md')
 const title = 'Projets'
+const projects = await getCollection('projects')
 ---
 
-<PageLayout category="development" title={title}>
+<PageLayout title={title}>
     <p>Projets parfois aboutis. Expérimentations étranges. Code en dehors des tendances. Il y a un peu de tout et surtout beaucoup de moi.</p>
     <div class="articles">
-        <ArticleCard
-            cover={portfolioScreenshot}
-            coverAlt="capture d'écran de la page d'accueil du portfolio"
-            tags={['astro', 'javascript', 'github actions', 'webforms']}
-            title="Portfolio"
-            url="/projects/portfolio"
-        />
-        <ArticleCard
-            cover={resultLogo}
-            coverAlt="result logo"
-            tags={['php', 'oop', 'librairie']}
-            title="Result"
-            url="/projects/result"
-        />
+        {projects.map(project =>
+            <ArticleCard
+                cover={project.data.cover}
+                coverAlt={project.data.coverAlt}
+                title={project.data.title}
+                url={`/projects/${project.slug}`}
+            />
+        )}
     </div>
 </PageLayout>
 
 <style>
     .articles {
         display: flex;
-        flex-wrap: wrap;
-        gap: 30px;
+        flex-direction: column;
+        gap: 2px;
     }
 </style>

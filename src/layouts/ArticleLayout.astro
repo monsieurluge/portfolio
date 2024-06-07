@@ -1,19 +1,13 @@
 ---
-import PageLayout from './PageLayout.astro'
+import BaseLayout from '../layouts/BaseLayout.astro'
+import '../styles/markdown-article.css'
 
 const { frontmatter } = Astro.props
 ---
 
-<PageLayout category={frontmatter.category} title={frontmatter.title}>
-    <slot />
-    {frontmatter.updated && <footer>contenu mis à jour le {frontmatter.updated}</footer>}
-</PageLayout>
-
-<style>
-    footer {
-        margin: 3rem 0;
-        padding-top: 0.5rem;
-        border-top: 1px solid #ffffff;
-        text-align: right;
-    }
-</style>
+<BaseLayout title={frontmatter.title}>
+    <article class="markdown-article">
+        <slot />
+        <footer>mis à jour le {frontmatter.lastUpdate}</footer>
+    </article>
+</BaseLayout>

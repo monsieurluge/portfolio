@@ -1,11 +1,11 @@
 ---
-import PageLayout from '../layouts/PageLayout.astro'
+import BaseLayout from '../layouts/BaseLayout.astro'
 
 const title = 'Contact'
 const webFormAccessKey = 'e62af265-1882-4863-9324-8adc20fc732a'
 ---
 
-<PageLayout category="about-me" title={title}>
+<BaseLayout title={title}>
     <form method="POST" id="form">
         <input type="hidden" name="access_key" value={webFormAccessKey}>
         <input type="hidden" name="subject" value="[monsieurluge.dev] Prise de contact depuis le portfolio">
@@ -18,7 +18,7 @@ const webFormAccessKey = 'e62af265-1882-4863-9324-8adc20fc732a'
         <button type="submit">envoyer</button>
         <div id="result"></div>
     </form>
-</PageLayout>
+</BaseLayout>
 
 <script>
     const form = document.getElementById('form') as HTMLFormElement
@@ -69,13 +69,16 @@ const webFormAccessKey = 'e62af265-1882-4863-9324-8adc20fc732a'
     form {
         display: flex;
         flex-direction: column;
-        padding: var(--content-spacing-horizontal);
+        max-width: 700px;
+        margin: 0 auto;
+        padding: var(--content-spacing);
         border: 1px solid #ffffff;
     }
 
     label {
-        font-family: var(--heading-font);
-        font-size: var(--heading-font-size);
+        font-family: ubuntu, sans-serif;
+        font-size: 2rem;
+        font-weight: lighter;
     }
 
     label .mandatory {

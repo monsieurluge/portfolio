@@ -4,8 +4,8 @@ category: 'development'
 description: 'Lorem ipsum do in est dolor nisi ad adipisicing ullamco eu exercitation ut qui dolor irure anim dolor dolor id pariatur eu sunt.'
 cover: './result-logo.png'
 coverAlt: 'result logo'
+lastUpdate: '2024-05-23'
 layout: '../../layouts/ArticleLayout.astro'
-updated: '2024-05-23'
 tags: ['php', 'oop', 'librairie']
 title: 'Result'
 ---

@@ -1,11 +1,11 @@
 ---
 author: 'monsieurluge'
 category: 'development'
-description: 'Lorem ipsum do in est dolor nisi ad adipisicing ullamco eu exercitation ut qui dolor irure anim dolor dolor id pariatur eu sunt.'
 cover: './portfolio.jpg'
 coverAlt: "capture d'écran de la page d'accueil du portfolio"
+description: 'Lorem ipsum do in est dolor nisi ad adipisicing ullamco eu exercitation ut qui dolor irure anim dolor dolor id pariatur eu sunt.'
+lastUpdate: '2024-06-04'
 layout: '../../layouts/ArticleLayout.astro'
-updated: '2024-06-04'
 tags: ['astro', 'javascript', 'github actions']
 title: 'Portfolio'
 ---
