@@ -6,10 +6,10 @@ import BaseLayout from '../layouts/BaseLayout.astro'
     <h1>Laurent Vergé<span class="aka">aka</span><span class="pseudo">monsieurluge</span></h1>
     <p class="subtitle">développeur web senior</p>
     <section class="about-me">
-        <h2>full stack</h2>
-        <p>Linux • git • Docker • CI-CD</p>
-        <p>Node • Nest • Vue</p>
-        <p>PHP • Symfony • Vue • JQuery</p>
+        <h2>mentor</h2>
+        <p>partage les résultats de veille technologique</p>
+        <p>invite à l'échange via le pair programming, la revue de code</p>
+        <p>aide au changement d'habitudes, de process, de technos</p>
     </section>
     <section class="about-me">
         <h2>agile</h2>
@@ -18,10 +18,13 @@ import BaseLayout from '../layouts/BaseLayout.astro'
         <p>valorise la proximité avec le client</p>
     </section>
     <section class="about-me">
-        <h2>mentor</h2>
-        <p>partage les résultats de veille technologique</p>
-        <p>invite à l'échange via le pair programming, la revue de code</p>
-        <p>aide au changement d'habitudes, de process, de technos</p>
+        <h2>full stack</h2>
+        <p>frontend<span class="separator"> :: </span>javascript<span class="separator"> • </span>JQuery<span class="separator"> • </span>Vue</p>
+        <p>backend<span class="separator"> :: </span>Linux<span class="separator"> • </span>Node<span class="separator"> • </span>PHP<span class="separator"> • </span>SGBDR</p>
+        <p>qualité<span class="separator"> :: </span>ESLint<span class="separator"> • </span>SonarQube<span class="separator"> • </span>clean archi<span class="separator"> • </span>TDD</p>
+        <p>infrastructure<span class="separator"> :: </span>Linux<span class="separator"> • </span>git<span class="separator"> • </span>Docker<span class="separator"> • </span>Nginx<span class="separator"> • </span>Apache</p>
+        <p>monitoring<span class="separator"> :: </span>Grafana<span class="separator"> • </span>Datadog</p>
+        <p>déploiement<span class="separator"> :: </span>CI-CD<span class="separator"> • </span>GitLab CI<span class="separator"> • </span>github actions<span class="separator"> • </span>Jenkins</p>
     </section>
 </BaseLayout>
 
@@ -48,7 +51,7 @@ import BaseLayout from '../layouts/BaseLayout.astro'
     }
 
     .about-me {
-        margin: 2px 0;
+        margin: 8px 0;
         padding: 1rem 2rem;
         background-color: var(--bg-low);
         border-radius: 3px;
@@ -63,5 +66,9 @@ import BaseLayout from '../layouts/BaseLayout.astro'
     .about-me p {
         margin: 0;
         color: var(--fg-med);
+    }
+
+    .separator {
+        filter: opacity(60%);
     }
 </style>
