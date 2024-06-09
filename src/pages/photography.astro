@@ -1,11 +1,133 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
+import { Image } from 'astro:assets'
+import PageLayout from '../layouts/PageLayout.astro'
 
-const title = 'Photographie'
+const description = "Sélection de photos que j'ai pu prendre au gré de mes promenades, sur notre sol ou ailleurs, sans but précis ou avec une idée en tête, toujours à la recherche du plaisir de prendre des photos."
+const galleries = [
+    {
+        folder: 'japon',
+        name: '日本で',
+        photos: [
+            { name: 'IMG_5932.jpg', orientation: 'landscape', title: 'photo test' },
+            { name: 'IMG_5933.jpg', orientation: 'landscape', title: 'photo test' },
+            { name: 'IMG_6090.jpg', orientation: 'landscape', title: 'photo test' },
+            { name: 'IMG_6204.jpg', orientation: 'landscape', title: 'photo test' },
+            { name: 'IMG_6291.jpg', orientation: 'portrait', title: 'photo test' },
+            { name: 'IMG_6306.jpg', orientation: 'portrait', title: 'photo test' },
+            { name: 'IMG_6390.jpg', orientation: 'landscape', title: 'photo test' },
+            { name: 'IMG_6469.jpg', orientation: 'landscape', title: 'photo test' },
+            { name: 'IMG_6478.jpg', orientation: 'landscape', title: 'photo test' },
+            { name: 'IMG_6523.jpg', orientation: 'landscape', title: 'photo test' },
+            { name: 'IMG_6614.jpg', orientation: 'landscape', title: 'photo test' },
+            { name: 'IMG_6684.jpg', orientation: 'portrait', title: 'photo test' },
+            { name: 'IMG_6755.jpg', orientation: 'portrait', title: 'photo test' },
+            { name: 'IMG_6780.jpg', orientation: 'landscape', title: 'photo test' },
+            { name: 'IMG_6840.jpg', orientation: 'landscape', title: 'photo test' },
+            { name: 'IMG_6858.jpg', orientation: 'landscape', title: 'photo test' },
+            { name: 'IMG_6972.jpg', orientation: 'landscape', title: 'photo test' },
+            { name: 'IMG_7103.jpg', orientation: 'portrait', title: 'photo test' },
+            { name: 'IMG_7183.jpg', orientation: 'landscape', title: 'photo test' },
+            { name: 'IMG_7251.jpg', orientation: 'landscape', title: 'photo test' },
+            { name: 'IMG_7268.jpg', orientation: 'landscape', title: 'photo test' },
+            { name: 'IMG_7272.jpg', orientation: 'landscape', title: 'photo test' },
+            { name: 'IMG_7439.jpg', orientation: 'square', title: 'photo test' },
+            { name: 'IMG_7742.jpg', orientation: 'landscape', title: 'photo test' },
+            { name: 'IMG_7855.jpg', orientation: 'landscape', title: 'photo test' },
+            { name: 'IMG_7964.jpg', orientation: 'portrait', title: 'photo test' },
+            { name: 'IMG_8016.jpg', orientation: 'landscape', title: 'photo test' },
+            { name: 'IMG_8036.jpg', orientation: 'landscape', title: 'photo test' },
+            { name: 'IMG_8184.jpg', orientation: 'landscape', title: 'photo test' },
+            { name: 'IMG_8284.jpg', orientation: 'portrait', title: 'photo test' },
+            { name: 'IMG_8336.jpg', orientation: 'landscape', title: 'photo test' },
+            { name: 'MLG_8408.jpg', orientation: 'portrait', title: 'photo test' },
+            { name: 'MLG_8527.jpg', orientation: 'landscape', title: 'photo test' },
+            { name: 'MLG_8751.jpg', orientation: 'landscape', title: 'photo test' },
+            { name: 'MLG_8804.jpg', orientation: 'landscape', title: 'photo test' },
+            { name: 'MLG_8935.jpg', orientation: 'portrait', title: 'photo test' },
+            { name: 'MLG_9052.jpg', orientation: 'landscape', title: 'photo test' },
+        ]
+    },
+    {
+        folder: 'mariages',
+        name: 'mariages',
+        photos: [
+            { name: '_MLG2670_DxO.jpg', orientation: 'portrait', title: 'photo test' },
+            { name: '_MLG3100_DxO.jpg', orientation: 'portrait', title: 'photo test' },
+        ]
+    },
+    {
+        folder: 'roller',
+        name: 'session roller',
+        photos: [
+            { name: 'MLG_9306.jpg', orientation: 'portrait', title: 'photo test' },
+            { name: 'MLG_9333.jpg', orientation: 'portrait', title: 'photo test' },
+            { name: 'MLG_9393.jpg', orientation: 'portrait', title: 'photo test' },
+            { name: 'MLG_9396.jpg', orientation: 'portrait', title: 'photo test' },
+            { name: 'MLG_9508.jpg', orientation: 'portrait', title: 'photo test' },
+        ]
+    },
+    {
+        folder: 'misc',
+        name: 'un peu de tout',
+        photos: [
+            { name: '_LG_1205_DxO.jpg', orientation: 'portrait', title: 'photo test' },
+            { name: '_LG_1211_DxO.jpg', orientation: 'landscape', title: 'photo test' },
+            { name: '_LG_1254_DxO.jpg', orientation: 'portrait', title: 'photo test' },
+            { name: '_MLG1459_DxO.jpg', orientation: 'portrait', title: 'photo test' },
+            { name: 'CPC-theme-tryptique.jpg', orientation: 'landscape', title: 'photo test' },
+            { name: 'DSCF2001.JPG', orientation: 'square', title: 'photo test' },
+            { name: 'DSCF2014.JPG', orientation: 'portrait', title: 'photo test' },
+            { name: 'DSCF2222.JPG', orientation: 'square', title: 'photo test' },
+            { name: 'DSCF2239.JPG', orientation: 'portrait', title: 'photo test' },
+            { name: 'IMG_0694.JPG', orientation: 'landscape', title: 'photo test' },
+            { name: 'IMG_3553.jpg', orientation: 'landscape', title: 'photo test' },
+            { name: 'IMG_3778.jpg', orientation: 'landscape', title: 'photo test' },
+            { name: 'IMG_5277-2.jpg', orientation: 'landscape', title: 'photo test' },
+            { name: 'MLG_9849.jpg', orientation: 'landscape', title: 'photo test' },
+            { name: 'MLG_9852.jpg', orientation: 'portrait', title: 'photo test' },
+            { name: 'MLG_9875.jpg', orientation: 'portrait', title: 'photo test' },
+            { name: 'MLG_9916.jpg', orientation: 'landscape', title: 'photo test' },
+        ]
+    },
+]
+const photosBaseUrl = 'https://monsieurluge.dev/gallery/'
+const title = 'Galerie photo'
 ---
 
-<BaseLayout category="hobby" title={title}>
-    <p>Ex id esse pariatur.</p>
-    <p>Et dolor eiusmod dolor adipisicing enim enim minim cupidatat ex esse consequat velit ullamco cillum ut nostrud excepteur qui non aliqua voluptate elit aliquip aliqua fugiat.</p>
-    <p>Proident in tempor consectetur ut irure minim cupidatat ea tempor fugiat officia nulla minim et reprehenderit ut elit amet anim in nisi mollit deserunt nostrud ut duis enim reprehenderit non ut sint.</p>
-</BaseLayout>
+<PageLayout description={description} title={title}>
+    {galleries.map(gallery =>
+        <h2>{gallery.name}</h2>
+        <div class="gallery">
+            {gallery.photos.map(photo =>
+                <Image src={photosBaseUrl.concat(gallery.folder, '/', photo.name)} alt={photo.title} width="600" height="600" loading="lazy" class:list={['photo', photo.orientation]} />
+            )}
+        </div>
+    )}
+</PageLayout>
+
+<style>
+    .gallery {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 4px;
+    }
+
+    .photo {
+        flex: 1;
+        width: auto;
+        height: 160px;
+        object-fit: cover;
+    }
+
+    .landscape {
+        aspect-ratio: 3 / 2;
+    }
+
+    .portrait {
+        aspect-ratio: 2 / 3;
+    }
+
+    .square {
+        aspect-ratio: 1 / 1;
+    }
+</style>
