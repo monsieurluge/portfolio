@@ -3,12 +3,12 @@ import { getCollection } from 'astro:content'
 import ArticleCard from '../components/ArticleCard.astro'
 import PageLayout from '../layouts/PageLayout.astro'
 
+const description = "Projets parfois aboutis. Expérimentations étranges. Code en dehors des tendances. Il y a un peu de tout et surtout beaucoup de moi."
 const title = 'Projets'
 const projects = await getCollection('projects')
 ---
 
-<PageLayout title={title}>
-    <p>Projets parfois aboutis. Expérimentations étranges. Code en dehors des tendances. Il y a un peu de tout et surtout beaucoup de moi.</p>
+<PageLayout description={description} title={title}>
     <div class="articles">
         {projects.map(project =>
             <ArticleCard

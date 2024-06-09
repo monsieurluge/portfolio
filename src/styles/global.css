@@ -60,6 +60,11 @@ body {
     margin: 0;
 }
 
+h1, h2 {
+    font-family: chopin;
+    font-weight: normal;
+}
+
 a {
     color: var(--fg-high);
 }
