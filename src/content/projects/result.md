@@ -4,7 +4,7 @@ category: 'development'
 description: 'Lorem ipsum do in est dolor nisi ad adipisicing ullamco eu exercitation ut qui dolor irure anim dolor dolor id pariatur eu sunt.'
 cover: './result-logo.png'
 coverAlt: 'result logo'
-lastUpdate: '2024-05-23'
+lastUpdate: '2024-06-10'
 layout: '../../layouts/ArticleLayout.astro'
 tags: ['php', 'oop', 'librairie']
 title: 'Result'
@@ -16,14 +16,14 @@ title: 'Result'
 
 ## Introduction
 
-Cette librairie est née de l'envie de "jouer" avec un pattern de développement nommé **Railway Oriented Programming** dont voici [un article](https://zohaib.me/railway-programming-pattern-in-elixir/) qui l'évoque.
+Cette librairie est née de l'envie de "jouer" avec un pattern de développement nommé **Railway Oriented Programming** dont voici <a href="https://zohaib.me/railway-programming-pattern-in-elixir/" target="_blank">un article</a> qui l'évoque.
 
 Certaines parties d'un projet professionnel sur lequel j'étais affecté n'étaient qu'enchainements de `if` et assignations de variables temporaires. J'ai donc voulu voir s'il était possible de transformer cette logique impérative en autre chose, lorgnant du côté de la programmation fonctionnelle et de l'orienté objet.
 
 ## La librairie
 
 - langage : PHP v7
-- sources : [github](https://github.com/monsieurluge/result)
+- sources : <a href="https://github.com/monsieurluge/result" target="_blank">github</a>
 - statut : archivée
 
 Elle a été développée en **TDD** avec PHPUnit et est par conséquent correctement couverte et documentée par les tests.
