@@ -9,11 +9,11 @@ const webFormAccessKey = 'e62af265-1882-4863-9324-8adc20fc732a'
     <form method="POST" id="form">
         <input type="hidden" name="access_key" value={webFormAccessKey}>
         <input type="hidden" name="subject" value="[monsieurluge.dev] Prise de contact depuis le portfolio">
-        <label>nom <span class="mandatory">(obligatoire)</span></label>
+        <label>nom<span class="mandatory">obligatoire</span></label>
         <input type="text" name="name" placeholder="ex: Richie Hawtin" required>
-        <label>email <span class="mandatory">(obligatoire)</span></label>
+        <label>email<span class="mandatory">obligatoire</span></label>
         <input type="email" name="email" placeholder="ex: contact@beatport.com" required>
-        <label>message <span class="mandatory">(obligatoire)</span></label>
+        <label>message<span class="mandatory">obligatoire</span></label>
         <textarea rows="5" name="message" placeholder="ex: J'apprécie ce que tu fais et j'aimerais en discuter avec toi. Convenons d'un rendez-vous !" required></textarea>
         <button type="submit">envoyer</button>
         <div id="result"></div>
@@ -69,20 +69,20 @@ const webFormAccessKey = 'e62af265-1882-4863-9324-8adc20fc732a'
     form {
         display: flex;
         flex-direction: column;
-        max-width: 700px;
-        margin: 0 auto;
         padding: var(--content-spacing);
-        border: 1px solid #ffffff;
+        background-color: var(--bg-low);
+        border-radius: var(--border-radius-small);
     }
 
     label {
-        font-family: ubuntu, sans-serif;
-        font-size: 2rem;
+        font-family: var(--title-font);
+        font-size: var(--title-size);
         font-weight: lighter;
     }
 
     label .mandatory {
         font-size: 1rem;
+        filter: opacity(30%);
     }
 
     input, textarea {
@@ -93,20 +93,22 @@ const webFormAccessKey = 'e62af265-1882-4863-9324-8adc20fc732a'
     }
 
     button {
-        margin: 2rem auto;
+        margin: var(--content-spacing) auto 0;
         padding: .8rem 1.6rem;
-        font-family: sans-serif;
+        color: var(--background);
+        font-family: ubuntu, sans-serif;
         text-transform: uppercase;
-        background-color: #ffffff;
+        background-color: var(--fg-high);
         border: 4px solid transparent;
-        border-radius: 2px;
+        border-radius: var(--border-radius-small);
+        transition: border .3s;
     }
 
     button:hover {
-        border-color: gold;
+        border-color: var(--fg-med);
     }
 
     button:active {
-        background-color: gold;
+        background-color: var(--fg-med);
     }
 </style>

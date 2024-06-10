@@ -21,8 +21,11 @@
     --title-padding-horizontal: 2rem;
     --title-padding-vertical: .5rem;
     /* spacing and sizes */
+    --border-radius-small: 3px;
     --content-spacing: 3rem;
     --content-width: 600px;
+    --title-font: chopin, sans-serif;
+    --title-size: 2rem;
 }
 
 @font-face {
