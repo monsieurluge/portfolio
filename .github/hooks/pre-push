@@ -1,0 +1,13 @@
+#!/bin/sh
+
+echo "Building..."
+
+git stash -q --keep-index
+
+npm run build
+
+status=$?
+
+git stash pop -q
+
+exit $status

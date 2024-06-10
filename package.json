@@ -6,12 +6,19 @@
     "dev": "astro dev --port 1234",
     "start": "astro dev",
     "build": "astro check && astro build",
+    "lint": "eslint . --ignore-pattern '.astro/'",
+    "postinstall": "cp .github/hooks/* .git/hooks && chmod +x .git/hooks/* && echo 'git hooks copied'",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.6.2",
     "@astrojs/check": "^0.5.10",
+    "astro": "^4.6.2",
     "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@stylistic/eslint-plugin-js": "^2.1.0",
+    "eslint": "^9.4.0",
+    "eslint-plugin-astro": "^1.2.0"
   }
 }
