@@ -21,17 +21,17 @@ const { description, title } = Astro.props
 
     h1 {
         margin: 0 0 var(--content-spacing);
-        padding: 1rem 2rem;
-        font-family: chopin, sans-serif;
-        font-size: 2rem;
+        padding: var(--box-spacing);
+        font-family: var(--title-font);
+        font-size: var(--title-size);
         color: var(--background);
         background-color: var(--fg-high);
     }
 
     .description {
         margin: 0;
-        padding: 1rem 2rem;
+        padding: var(--box-spacing);
         background-color: var(--bg-low);
-        border-radius: 3px;
+        border-radius: var(--border-radius-small);
     }
 </style>

@@ -16,7 +16,7 @@ const { cover, coverAlt, title, url } = Astro.props
         flex-direction: column;
         justify-content: center;
         aspect-ratio: 2 / 1;
-        border-radius: 3px;
+        border-radius: var(--border-radius-small);
         overflow: hidden;
     }
 
@@ -45,7 +45,7 @@ const { cover, coverAlt, title, url } = Astro.props
         background-color: var(--fg-high);
         border-top: 2px solid var(--background);
         border-right: 2px solid var(--background);
-        border-radius: 0 3px 0 0;
+        border-radius: 0 var(--border-radius-small) 0 0;
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;

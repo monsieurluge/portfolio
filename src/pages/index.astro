@@ -51,10 +51,14 @@ import BaseLayout from '../layouts/BaseLayout.astro'
     }
 
     .about-me {
-        margin: 8px 0;
-        padding: 1rem 2rem;
+        margin: 0 0 8px;
+        padding: var(--box-spacing);
         background-color: var(--bg-low);
         border-radius: 3px;
+    }
+
+    .about-me:last-child {
+        margin-bottom: 0;
     }
 
     .about-me h2 {
