@@ -5,29 +5,78 @@ const activeIfIn = (name: String) => currentPathRoot === name ? 'active' : ''
 ---
 
 <aside>
-    <menu>
+    <ul class="themes-selector">
+        <li><button data-theme="dark" onclick="changeTheme('dark')">dark</button></li>
+        <li><button data-theme="light" onclick="changeTheme('light')">light</button></li>
+        <li class="list-name">thèmes</li>
+    </ul>
+    <nav>
         <a class={activeIfIn('contact')} href="/contact">contact</a>
         <a class={activeIfIn('photography')} href="/photography">galerie</a>
         <a class={activeIfIn('resume')} href="/resume">curriculum vitae</a>
         <a class={activeIfIn('projects')} href="/projects">projets</a>
         <a class={activeIfIn('')} href="/">accueil</a>
-    </menu>
+    </nav>
 </aside>
 
 <style>
     aside {
         position: fixed;
         top: var(--content-spacing);
-        right: calc(50% + var(--content-width) / 2 - var(--content-spacing));
+        right: calc(50% + var(--content-width) / 2 - var(--content-spacing) + 8px);
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: var(--content-spacing);
+        flex-direction: row;
     }
 
-    menu {
+    .themes-selector {
         margin: 0;
-        padding: 0 4px;
+        padding: 0 4px 0 0;
+        list-style-type: none;
+    }
+
+    .list-name {
+        font-size: 1rem;
+        line-height: 1rem;
+        color: var(--fg-low);
+        text-transform: uppercase;
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+    }
+
+    .themes-selector li {
+        margin: 0;
+        text-align: center;
+    }
+
+    .themes-selector li:not(:last-child) {
+        margin-bottom: 2px;
+    }
+
+    .themes-selector button {
+        width: 12px;
+        height: 12px;
+        padding: 0;
+        color: transparent;
+        text-decoration: none;
+        text-transform: uppercase;
+        border: 1px solid var(--fg-low);
+        background-color: transparent;
+        overflow: hidden;
+        transition: color 0.3s;
+    }
+
+    .themes-selector button.active {
+        border-color: var(--fg-high);
+        background-color: var(--fg-high);
+    }
+
+    .themes-selector button:hover {
+        border-color: var(--fg-high);
+    }
+
+    nav {
+        margin: 0;
+        padding: 0 4px 0 0;
         writing-mode: vertical-rl;
         transform: rotate(180deg);
         border-right: 1px solid var(--fg-low);
@@ -53,3 +102,16 @@ const activeIfIn = (name: String) => currentPathRoot === name ? 'active' : ''
         color: var(--fg-high);
     }
 </style>
+
+<script is:inline>
+    function changeTheme(name) {
+        theme.setTheme(name);
+
+    }
+
+    // document.addEventListener('theme-changed', event => {
+    //     document.querySelectorAll('.themes-selector button').forEach(button => {
+    //         button.classList.toggle('active', button.dataset.theme === event.detail.theme);
+    //     });
+    // })
+</script>

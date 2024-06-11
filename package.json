@@ -6,7 +6,7 @@
     "dev": "astro dev --port 1234",
     "start": "astro dev",
     "build": "astro check && astro build",
-    "lint": "eslint . --ignore-pattern '.astro/'",
+    "lint": "eslint . --ignore-pattern '.astro/' --ignore-pattern 'dist/'",
     "postinstall": "cp .github/hooks/* .git/hooks && chmod +x .git/hooks/* && echo 'git hooks copied'",
     "preview": "astro preview",
     "astro": "astro"
