@@ -101,3 +101,8 @@ a[target="_blank"]::after {
     content: " ❏";
     font-size: 0.8em;
 }
+
+::selection {
+    color: var(--fg-inv);
+    background-color: var(--bg-inv);
+}
