@@ -109,9 +109,13 @@ const activeIfIn = (name: String) => currentPathRoot === name ? 'active' : ''
 
     }
 
-    // document.addEventListener('theme-changed', event => {
-    //     document.querySelectorAll('.themes-selector button').forEach(button => {
-    //         button.classList.toggle('active', button.dataset.theme === event.detail.theme);
-    //     });
-    // })
+    document.querySelectorAll('.themes-selector button').forEach(button => {
+        button.classList.toggle('active', button.dataset.theme === theme.getTheme());
+    });
+
+    document.addEventListener('theme-changed', ({ detail }) => {
+        document.querySelectorAll('.themes-selector button').forEach(button => {
+            button.classList.toggle('active', button.dataset.theme === detail.theme);
+        });
+    })
 </script>
