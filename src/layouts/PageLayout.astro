@@ -25,13 +25,14 @@ const { description, title } = Astro.props
         font-family: var(--title-font);
         font-size: var(--title-size);
         color: var(--background);
-        background-color: var(--fg-high);
+        background-color: var(--f-high);
     }
 
     .description {
         margin: 0;
         padding: var(--box-spacing);
-        background-color: var(--bg-low);
+        background-color: var(--b-low);
+        border: 1px solid var(--b-med);
         border-radius: var(--border-radius-small);
     }
 </style>

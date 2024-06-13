@@ -1,14 +1,14 @@
 :root {
-    /* theme */
-    --fg-high: #ffffff;
-    --fg-med: #e47464;
-    --fg-low: #66606b;
-    --fg-inv: #000000;
+    /* default theme - dark */
     --background: #29272b;
-    --bg-high: #000000;
-    --bg-med: #201e21;
-    --bg-low: #322e33;
-    --bg-inv: #e47464;
+    --f-high: #ffffff;
+    --f-med: #e47464;
+    --f-low: #66606b;
+    --f-inv: #000000;
+    --b-high: #000000;
+    --b-med: #201e21;
+    --b-low: #322e33;
+    --b-inv: #e47464;
     /* texts */
     --heading-font: alumni, sans-serif;
     --heading-font-size: 2.2rem;
@@ -27,30 +27,6 @@
     --content-width: 600px;
     --title-font: chopin, sans-serif;
     --title-size: 2rem;
-}
-
-:root[data-theme="dark"] {
-    --background: #29272b;
-    --fg-high: #ffffff;
-    --fg-med: #e47464;
-    --fg-low: #66606b;
-    --fg-inv: #000000;
-    --bg-high: #000000;
-    --bg-med: #201e21;
-    --bg-low: #322e33;
-    --bg-inv: #e47464;
-}
-
-:root[data-theme="light"] {
-    --background: #dad7cd;
-    --fg-high: #696861;
-    --fg-med: #ffffff;
-    --fg-low: #b3b2ac;
-    --fg-inv: #43423e;
-    --bg-high: #43423e;
-    --bg-med: #c2c1bb;
-    --bg-low: #e5e3dc;
-    --bg-inv: #eb3f48;
 }
 
 @font-face {
@@ -80,7 +56,7 @@
 
 html {
     font-family: ubuntu, sans-serif;
-    color: var(--fg-high);
+    color: var(--f-high);
     background-color: var(--background);
 }
 
@@ -94,7 +70,7 @@ h1, h2 {
 }
 
 a {
-    color: var(--fg-high);
+    color: var(--f-high);
 }
 
 a[target="_blank"]::after {
@@ -103,6 +79,6 @@ a[target="_blank"]::after {
 }
 
 ::selection {
-    color: var(--fg-inv);
-    background-color: var(--bg-inv);
+    color: var(--f-inv);
+    background-color: var(--b-inv);
 }

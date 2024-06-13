@@ -8,6 +8,8 @@ const activeIfIn = (name: String) => currentPathRoot === name ? 'active' : ''
     <ul class="themes-selector">
         <li><button data-theme="dark" onclick="changeTheme('dark')">dark</button></li>
         <li><button data-theme="light" onclick="changeTheme('light')">light</button></li>
+        <li><button data-theme="appolo" onclick="changeTheme('appolo')">appolo</button></li>
+        <li><button data-theme="marble" onclick="changeTheme('marble')">marble</button></li>
         <li class="list-name">thèmes</li>
     </ul>
     <nav>
@@ -37,7 +39,7 @@ const activeIfIn = (name: String) => currentPathRoot === name ? 'active' : ''
     .list-name {
         font-size: 1rem;
         line-height: 1rem;
-        color: var(--fg-low);
+        color: var(--f-low);
         text-transform: uppercase;
         writing-mode: vertical-rl;
         transform: rotate(180deg);
@@ -59,19 +61,19 @@ const activeIfIn = (name: String) => currentPathRoot === name ? 'active' : ''
         color: transparent;
         text-decoration: none;
         text-transform: uppercase;
-        border: 1px solid var(--fg-low);
+        border: 1px solid var(--f-low);
         background-color: transparent;
         overflow: hidden;
         transition: color 0.3s;
     }
 
     .themes-selector button.active {
-        border-color: var(--fg-high);
-        background-color: var(--fg-high);
+        border-color: var(--f-high);
+        background-color: var(--f-high);
     }
 
     .themes-selector button:hover {
-        border-color: var(--fg-high);
+        border-color: var(--f-high);
     }
 
     nav {
@@ -79,14 +81,14 @@ const activeIfIn = (name: String) => currentPathRoot === name ? 'active' : ''
         padding: 0 4px 0 0;
         writing-mode: vertical-rl;
         transform: rotate(180deg);
-        border-right: 1px solid var(--fg-low);
+        border-right: 1px solid var(--f-low);
     }
 
     a {
         padding: 4px 0;
         font-size: 1rem;
         line-height: 1rem;
-        color: var(--fg-low);
+        color: var(--f-low);
         text-decoration: none;
         text-transform: uppercase;
         border-radius: var(--border-radius-small);
@@ -95,11 +97,11 @@ const activeIfIn = (name: String) => currentPathRoot === name ? 'active' : ''
 
     a.active {
         color: transparent;
-        background-color: var(--fg-high);
+        background-color: var(--f-high);
     }
 
     a:not(.active):hover {
-        color: var(--fg-high);
+        color: var(--f-high);
     }
 </style>
 
