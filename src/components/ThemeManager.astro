@@ -7,6 +7,7 @@ const { defaultTheme = 'auto' } = Astro.props
 ---
 
 <script is:inline data-default-theme={defaultTheme}>
+    const fakeLocalStorage = { getItem: () => null, setItem: () => {} }
     const toColorVariable = key => `--${key.replace('_', '-')}`
 
     const themes = new Map()
@@ -56,12 +57,11 @@ const { defaultTheme = 'auto' } = Astro.props
     })
 
     window.theme ??= (() => {
-        const storageKey = 'theme'
         const defaultTheme = document.currentScript.getAttribute('data-default-theme')
-        const store = typeof localStorage !== 'undefined'
-            ? localStorage
-            : { getItem: () => null, setItem: () => {} }
         const mediaMatcher = window.matchMedia('(prefers-color-scheme: light)')
+        const storageKey = 'theme'
+        const store = !localStorage ? fakeLocalStorage : localStorage
+
         mediaMatcher.addEventListener('change', event => {
             const systemTheme = event.matches ? 'tape' : 'sandstorm'
             applyTheme(window.theme.setTheme(systemTheme))
@@ -70,9 +70,9 @@ const { defaultTheme = 'auto' } = Astro.props
         function applyTheme(theme) {
             if (!themes.has(theme)) return
             const colors = themes.get(theme)
-            Object.entries(colors).forEach(([key, value]) => {
+            Object.entries(colors).forEach(([key, value]) =>
                 document.documentElement.style.setProperty(toColorVariable(key), value)
-            })
+            )
             document.dispatchEvent(
                 new CustomEvent('theme-changed', {
                     detail: { theme },
@@ -80,14 +80,14 @@ const { defaultTheme = 'auto' } = Astro.props
             )
         }
 
+        function getTheme() {
+            return store.getItem(storageKey) || defaultTheme
+        }
+
         function setTheme(theme = defaultTheme) {
             if (!themes.has(theme)) return
             store.setItem(storageKey, theme)
             applyTheme(theme)
-        }
-
-        function getTheme() {
-            return store.getItem(storageKey) || defaultTheme
         }
 
         return {

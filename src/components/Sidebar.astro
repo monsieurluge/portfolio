@@ -5,11 +5,11 @@ const activeIfIn = (name: String) => currentPathRoot === name ? 'active' : ''
 ---
 
 <aside>
-    <ul class="themes-selector">
-        <li><button data-theme="sandstorm" onclick="changeTheme('sandstorm')">sandstorm</button></li>
-        <li><button data-theme="tape" onclick="changeTheme('tape')">tape</button></li>
-        <li><button data-theme="appolo" onclick="changeTheme('appolo')">appolo</button></li>
-        <li><button data-theme="marble" onclick="changeTheme('marble')">marble</button></li>
+    <ul id="themes-selector">
+        <li><button data-theme="sandstorm">sandstorm</button></li>
+        <li><button data-theme="tape">tape</button></li>
+        <li><button data-theme="appolo">appolo</button></li>
+        <li><button data-theme="marble">marble</button></li>
         <li class="list-name">thèmes</li>
     </ul>
     <nav>
@@ -30,10 +30,19 @@ const activeIfIn = (name: String) => currentPathRoot === name ? 'active' : ''
         flex-direction: row;
     }
 
-    .themes-selector {
+    #themes-selector {
         margin: 0;
         padding: 0 4px 0 0;
         list-style-type: none;
+    }
+
+    #themes-selector li {
+        margin: 0;
+        text-align: center;
+    }
+
+    #themes-selector li:not(:last-child) {
+        margin-bottom: 2px;
     }
 
     .list-name {
@@ -45,34 +54,23 @@ const activeIfIn = (name: String) => currentPathRoot === name ? 'active' : ''
         transform: rotate(180deg);
     }
 
-    .themes-selector li {
-        margin: 0;
-        text-align: center;
-    }
-
-    .themes-selector li:not(:last-child) {
-        margin-bottom: 2px;
-    }
-
-    .themes-selector button {
+    #themes-selector button {
         width: 12px;
         height: 12px;
         padding: 0;
         color: transparent;
-        text-decoration: none;
-        text-transform: uppercase;
+        text-indent: -100vh;
         border: 1px solid var(--f-low);
         background-color: transparent;
-        overflow: hidden;
         transition: color 0.3s;
     }
 
-    .themes-selector button.active {
+    #themes-selector button.active {
         border-color: var(--f-high);
         background-color: var(--f-high);
     }
 
-    .themes-selector button:hover {
+    #themes-selector button:hover {
         border-color: var(--f-high);
     }
 
@@ -106,18 +104,21 @@ const activeIfIn = (name: String) => currentPathRoot === name ? 'active' : ''
 </style>
 
 <script is:inline>
-    function changeTheme(name) {
-        theme.setTheme(name);
-
-    }
-
-    document.querySelectorAll('.themes-selector button').forEach(button => {
-        button.classList.toggle('active', button.dataset.theme === theme.getTheme());
-    });
+    document.getElementById('themes-selector').addEventListener('click', ({ target }) => {
+        if (target.tagName !== 'BUTTON') return
+        theme.setTheme(target.dataset.theme)
+    })
 
     document.addEventListener('theme-changed', ({ detail }) => {
-        document.querySelectorAll('.themes-selector button').forEach(button => {
-            button.classList.toggle('active', button.dataset.theme === detail.theme);
-        });
+        document.querySelectorAll('#themes-selector button').forEach(button => {
+            button.classList.toggle('active', button.dataset.theme === detail.theme)
+        })
+    })
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const currentTheme = theme.getTheme()
+        document.querySelectorAll('#themes-selector button').forEach(button => {
+            button.classList.toggle('active', button.dataset.theme === currentTheme)
+        })
     })
 </script>
