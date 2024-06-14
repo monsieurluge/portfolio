@@ -1,6 +1,6 @@
 ---
 type Props = {
-    defaultTheme?: 'auto' | 'dark' | 'light' | undefined,
+    defaultTheme?: 'auto' | 'sandstorm' | 'tape' | undefined,
 }
 
 const { defaultTheme = 'auto' } = Astro.props
@@ -10,7 +10,7 @@ const { defaultTheme = 'auto' } = Astro.props
     const toColorVariable = key => `--${key.replace('_', '-')}`
 
     const themes = new Map()
-    themes.set('dark', { // sandstorm
+    themes.set('sandstorm', {
         "background": "#3b3a36",
         "f_high": "#e5ccaf",
         "f_med": "#fc9e21",
@@ -21,7 +21,7 @@ const { defaultTheme = 'auto' } = Astro.props
         "b_low": "#44413c",
         "b_inv": "#fc9e21",
     })
-    themes.set('light', { // tape
+    themes.set('tape', {
         "background": "#dad7cd",
         "f_high": "#696861",
         "f_med": "#ffffff",
@@ -56,28 +56,26 @@ const { defaultTheme = 'auto' } = Astro.props
     })
 
     window.theme ??= (() => {
-        const defaultTheme = document.currentScript.getAttribute('data-default-theme')
         const storageKey = 'theme'
+        const defaultTheme = document.currentScript.getAttribute('data-default-theme')
         const store = typeof localStorage !== 'undefined'
             ? localStorage
             : { getItem: () => null, setItem: () => {} }
         const mediaMatcher = window.matchMedia('(prefers-color-scheme: light)')
-        let systemTheme = mediaMatcher.matches ? 'light' : 'dark'
         mediaMatcher.addEventListener('change', event => {
-            systemTheme = event.matches ? 'light' : 'dark'
-            applyTheme(theme.getTheme())
+            const systemTheme = event.matches ? 'tape' : 'sandstorm'
+            applyTheme(window.theme.setTheme(systemTheme))
         })
 
         function applyTheme(theme) {
-            const resolvedTheme = theme === 'auto' ? systemTheme : theme
-            document.documentElement.style.colorScheme = resolvedTheme
+            if (!themes.has(theme)) return
             const colors = themes.get(theme)
             Object.entries(colors).forEach(([key, value]) => {
                 document.documentElement.style.setProperty(toColorVariable(key), value)
             })
             document.dispatchEvent(
                 new CustomEvent('theme-changed', {
-                    detail: { theme, systemTheme, defaultTheme },
+                    detail: { theme },
                 })
             )
         }
@@ -92,23 +90,13 @@ const { defaultTheme = 'auto' } = Astro.props
             return store.getItem(storageKey) || defaultTheme
         }
 
-        function getSystemTheme() {
-            return systemTheme
-        }
-
-        function getDefaultTheme() {
-            return defaultTheme
-        }
-
         return {
-            getDefaultTheme,
-            getSystemTheme,
             getTheme,
             setTheme,
         }
     })()
 
-    theme.setTheme(theme.getTheme())
+    window.theme.setTheme(window.theme.getTheme())
 </script>
 
 <script>
