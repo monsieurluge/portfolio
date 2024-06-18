@@ -1,7 +1,5 @@
 ---
 author: 'monsieurluge'
-category: 'development'
-description: 'Lorem ipsum do in est dolor nisi ad adipisicing ullamco eu exercitation ut qui dolor irure anim dolor dolor id pariatur eu sunt.'
 cover: './result-logo.png'
 coverAlt: 'result logo'
 lastUpdate: '2024-06-10'
@@ -28,7 +26,7 @@ Certaines parties d'un projet professionnel sur lequel j'étais affecté n'étai
 
 Elle a été développée en **TDD** avec PHPUnit et est par conséquent correctement couverte et documentée par les tests.
 
-Il existait quelques librairies qui proposaient une vision du pattern en question mais rien ne m'avait vraiment convaincu et l'implémentation restait impérative ou proposait un contrat interface très chargé. Il me "fallait" proposer quelque chose 
+Il existait quelques librairies qui proposaient une vision du pattern en question mais rien ne m'avait vraiment convaincu et l'implémentation restait impérative ou proposait un contrat interface très chargé. Il me "fallait" proposer quelque chose
 
 ## Exemple de code
 
