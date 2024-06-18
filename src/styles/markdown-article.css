@@ -50,3 +50,10 @@
     color: var(--f-low);
     border-top: 1px solid var(--f-low);
 }
+
+.markdown-article blockquote {
+    margin: .5rem;
+    padding: .5rem 1rem;
+    background-color: var(--b-low);
+    border-radius: 0 1rem 1rem 1rem;
+}
