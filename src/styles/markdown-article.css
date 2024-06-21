@@ -29,16 +29,16 @@
 }
 
 .markdown-article img {
-    max-width: calc(var(--content-width) - var(--content-spacing) * 2);
+    max-width: var(--content-width);
     height: auto;
+}
+
+.markdown-article img:first-child {
+    width: var(--content-width);
 }
 
 .markdown-article p:nth-child(2) {
     margin: 2px 0;
-}
-
-.markdown-article img:first-child {
-    width: calc(var(--content-width) - var(--content-spacing) * 2);
 }
 
 .markdown-article footer {
