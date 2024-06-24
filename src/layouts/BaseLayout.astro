@@ -1,7 +1,10 @@
 ---
+import MobileMenu from '../components/MobileMenu.astro'
 import Sidebar from '../components/Sidebar.astro'
 import ThemeManager from '../components/ThemeManager.astro'
-import '../styles/global.css'
+import '../styles/global.css';
+import '../styles/desktop-layout.css';
+import '../styles/mobile-layout.css';
 
 const { title } = Astro.props
 ---
@@ -19,13 +22,6 @@ const { title } = Astro.props
         <Sidebar />
         <slot />
     </main>
+    <MobileMenu />
 </body>
 </html>
-
-<style>
-    main {
-        position: relative;
-        width: var(--content-width);
-        margin: var(--content-spacing) auto;
-    }
-</style>

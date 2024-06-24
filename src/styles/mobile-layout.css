@@ -1,0 +1,29 @@
+@media (max-width: 760px) {
+    :root {
+        /* spacing and sizes */
+        --border-radius-large: 16px;
+        --border-radius-small: 3px;
+        --box-spacing: 1.4rem 2rem;
+        --content-spacing: 2rem;
+        --content-width: 100%;
+        --heading-font-size: 2.2rem;
+        --main-menu-font-size: 1.5rem;
+        --nav-font-size: 1rem;
+        --title-size: 2rem;
+    }
+
+    main {
+        position: relative;
+        width: 100%;
+        padding: var(--content-spacing);
+        margin: 0;
+    }
+
+    aside {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: flex;
+    }
+}

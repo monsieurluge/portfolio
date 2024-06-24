@@ -11,19 +11,12 @@
     --b-inv: #e47464;
     /* texts */
     --heading-font: alumni, sans-serif;
-    --heading-font-size: 2.2rem;
-    --main-menu-font-size: 1.5rem;
     --main-menu-font: action, sans-serif;
-    --nav-font-size: 1rem;
     --nav-font: action, sans-serif;
     --title-font: chopin, sans-serif;
-    --title-size: 2rem;
     /* spacing and sizes */
-    --border-radius-small: 3px;
     --border-radius-large: 16px;
-    --box-spacing: 1.4rem 2rem;
-    --content-spacing: 3rem;
-    --content-width: 600px;
+    --border-radius-small: 3px;
 }
 
 @font-face {

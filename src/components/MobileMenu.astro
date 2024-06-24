@@ -1,0 +1,108 @@
+---
+---
+
+<div class="mobile-menu closed">
+    <nav>
+        <a href="/">accueil</a>
+        <a href="/projects">projets</a>
+        <a href="/resume">curriculum vitae</a>
+        <a href="/photography">galerie</a>
+        <a href="/contact">contact</a>
+    </nav>
+    <button>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-open">
+            <path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="3" d="M12.01 12v.01H12V12zm7 0v.01H19V12zm-14 0v.01H5V12z"/>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-close hidden">
+            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7 7l10 10M7 17L17 7"/>
+        </svg>
+    </button >
+</div >
+
+<script is:inline>
+    const button = document.querySelector('.mobile-menu button')
+    const menu = document.querySelector('.mobile-menu')
+    const iconClose = document.querySelector('.icon-close')
+    const iconOpen = document.querySelector('.icon-open')
+
+    button.addEventListener('click', () => {
+        menu.classList.toggle('closed')
+        if (menu.classList.contains('closed')) {
+            iconClose.classList.add('hidden')
+            iconOpen.classList.remove('hidden')
+        } else {
+            iconClose.classList.remove('hidden')
+            iconOpen.classList.add('hidden')
+        }
+    })
+</script>
+
+<style>
+    .mobile-menu {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        width: calc(100vw - 40px);
+        height: calc(100vh - 40px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--f-high);
+        border-radius: var(--border-radius-large);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        transition:
+            width 0.3s,
+            height 0.3s,
+            border-radius 0.3s;
+    }
+
+    .mobile-menu.closed {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 2rem;
+    }
+
+    .mobile-menu.closed nav a {
+        color: transparent;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+    }
+
+    a {
+        padding: 1rem;
+        color: var(--background);
+        font-size: 2rem;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: color 0.3s;
+    }
+
+    button {
+        display: block;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 4rem;
+        height: 4rem;
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        border: none;
+    }
+
+    svg {
+        width: 3rem;
+        height: 3rem;
+        color: var(--background);
+    }
+
+    svg.hidden {
+        display: none;
+    }
+</style>

@@ -1,0 +1,30 @@
+@media (min-width: 760px) {
+    :root {
+        /* spacing and sizes */
+        --box-spacing: 1.4rem 2rem;
+        --content-spacing: 3rem;
+        --content-width: 600px;
+        --heading-font-size: 2.2rem;
+        --main-menu-font-size: 1.5rem;
+        --nav-font-size: 1rem;
+        --title-size: 2rem;
+    }
+
+    main {
+        position: relative;
+        width: var(--content-width);
+        margin: var(--content-spacing) auto;
+    }
+
+    aside {
+        position: fixed;
+        top: var(--content-spacing);
+        right: calc(50% + var(--content-width) / 2 + 1rem);
+        display: flex;
+        flex-direction: row;
+    }
+
+    .mobile-menu {
+        display: none;
+    }
+}
