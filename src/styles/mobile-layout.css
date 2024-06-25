@@ -1,8 +1,6 @@
 @media (max-width: 760px) {
     :root {
         /* spacing and sizes */
-        --border-radius-large: 16px;
-        --border-radius-small: 3px;
         --box-spacing: 1.4rem 2rem;
         --content-spacing: 2rem;
         --content-width: 100%;
@@ -19,11 +17,120 @@
         margin: 0;
     }
 
-    aside {
-        display: none;
+    #main-menu {
+        position: fixed;
+        z-index: 2;
+        right: 20px;
+        bottom: 20px;
+        width: 4rem;
+        height: 4rem;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        background-color: var(--f-high);
+        border-radius: 2rem;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        transition:
+            width 0.3s,
+            height 0.3s,
+            border-radius 0.3s;
     }
 
-    .mobile-menu {
+    #main-menu.opened {
+        width: calc(100vw - 40px);
+        height: calc(100vh - 40px);
+        border-radius: var(--border-radius-large);
+    }
+
+    #themes-selector {
+        position: absolute;
+        top: 2rem;
+        display: none;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: center;
+        list-style-type: none;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        gap: 1.1rem;
+    }
+
+    #main-menu.opened #themes-selector {
         display: flex;
+    }
+
+    .list-name {
+        font-size: 1.1rem;
+        line-height: 1.1rem;
+        color: var(--background);
+        text-transform: uppercase;
+    }
+
+    #themes-selector button {
+        width: 1.1rem;
+        height: 1.1rem;
+        padding: 0;
+        color: transparent;
+        text-indent: -100vh;
+        border: 1px solid var(--background);
+        background-color: transparent;
+        transition: color 0.3s;
+    }
+
+    #themes-selector button.active {
+        border-color: var(--b-high);
+        background-color: var(--b-high);
+    }
+
+    #main-menu nav {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 8px;
+        align-items: center;
+    }
+
+    #main-menu nav a {
+        color: transparent;
+    }
+
+    #main-menu.opened nav a {
+        padding: 1rem;
+        color: var(--background);
+        font-size: 2rem;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: color 0.3s;
+    }
+
+    #main-menu.opened nav a.active {
+        color: var(--b-high);
+    }
+
+    .menu-button {
+        display: block;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 4rem;
+        height: 4rem;
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        border: none;
+    }
+
+    .menu-button svg {
+        width: 3rem;
+        height: 3rem;
+        color: var(--background);
+    }
+
+    .hidden {
+        display: none;
     }
 }

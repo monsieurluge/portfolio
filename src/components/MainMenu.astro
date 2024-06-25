@@ -4,7 +4,7 @@ const currentPathRoot = pathname.slice(1).split('/').shift();
 const activeIfIn = (name: String) => currentPathRoot === name ? 'active' : ''
 ---
 
-<aside>
+<menu id="main-menu">
     <ul id="themes-selector">
         <li><button data-theme="sandstorm">sandstorm</button></li>
         <li><button data-theme="tape">tape</button></li>
@@ -19,83 +19,35 @@ const activeIfIn = (name: String) => currentPathRoot === name ? 'active' : ''
         <a class={activeIfIn('projects')} href="/projects">projets</a>
         <a class={activeIfIn('')} href="/">accueil</a>
     </nav>
-</aside>
-
-<style>
-    #themes-selector {
-        margin: 0;
-        padding: 0 4px 0 0;
-        list-style-type: none;
-    }
-
-    #themes-selector li {
-        margin: 0;
-        text-align: center;
-    }
-
-    #themes-selector li:not(:last-child) {
-        margin-bottom: 2px;
-    }
-
-    .list-name {
-        font-size: 1rem;
-        line-height: 1rem;
-        color: var(--f-low);
-        text-transform: uppercase;
-        writing-mode: vertical-rl;
-        transform: rotate(180deg);
-    }
-
-    #themes-selector button {
-        width: 12px;
-        height: 12px;
-        padding: 0;
-        color: transparent;
-        text-indent: -100vh;
-        border: 1px solid var(--f-low);
-        background-color: transparent;
-        transition: color 0.3s;
-    }
-
-    #themes-selector button.active {
-        border-color: var(--f-high);
-        background-color: var(--f-high);
-    }
-
-    #themes-selector button:hover {
-        border-color: var(--f-high);
-    }
-
-    nav {
-        margin: 0;
-        padding: 0 4px 0 0;
-        writing-mode: vertical-rl;
-        transform: rotate(180deg);
-        border-right: 1px solid var(--f-low);
-    }
-
-    a {
-        padding: 4px 0;
-        font-size: 1rem;
-        line-height: 1rem;
-        color: var(--f-low);
-        text-decoration: none;
-        text-transform: uppercase;
-        border-radius: var(--border-radius-small);
-        transition: color 0.3s;
-    }
-
-    a.active {
-        color: transparent;
-        background-color: var(--f-high);
-    }
-
-    a:not(.active):hover {
-        color: var(--f-high);
-    }
-</style>
+    <button id="close-menu-button" class="menu-button hidden" onclick="closeMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7 7l10 10M7 17L17 7"/>
+        </svg>
+    </button>
+    <button id="open-menu-button" class="menu-button" onclick="openMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="3" d="M12.01 12v.01H12V12zm7 0v.01H19V12zm-14 0v.01H5V12z"/>
+        </svg>
+    </button>
+</menu>
 
 <script is:inline>
+    const buttonClose = document.getElementById('close-menu-button')
+    const buttonOpen = document.getElementById('open-menu-button')
+    const menu = document.getElementById('main-menu')
+
+    function closeMenu() {
+        menu.classList.remove('opened')
+        buttonClose.classList.add('hidden')
+        buttonOpen.classList.remove('hidden')
+    }
+
+    function openMenu() {
+        menu.classList.add('opened')
+        buttonOpen.classList.add('hidden')
+        buttonClose.classList.remove('hidden')
+    }
+
     document.getElementById('themes-selector').addEventListener('click', ({ target }) => {
         if (target.tagName !== 'BUTTON') return
         theme.setTheme(target.dataset.theme)

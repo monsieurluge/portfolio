@@ -16,15 +16,91 @@
         margin: var(--content-spacing) auto;
     }
 
-    aside {
+    #main-menu {
         position: fixed;
         top: var(--content-spacing);
         right: calc(50% + var(--content-width) / 2 + 1rem);
+        margin: 0;
+    }
+
+    .menu-button {
+        display: none;
+    }
+
+    menu {
         display: flex;
         flex-direction: row;
     }
 
-    .mobile-menu {
-        display: none;
+    #themes-selector {
+        margin: 0;
+        padding: 0 4px 0 0;
+        list-style-type: none;
+    }
+
+    #themes-selector li {
+        margin: 0;
+        text-align: center;
+    }
+
+    #themes-selector li:not(:last-child) {
+        margin-bottom: 2px;
+    }
+
+    .list-name {
+        font-size: 1rem;
+        line-height: 1rem;
+        color: var(--f-low);
+        text-transform: uppercase;
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+    }
+
+    #themes-selector button {
+        width: 12px;
+        height: 12px;
+        padding: 0;
+        color: transparent;
+        text-indent: -100vh;
+        border: 1px solid var(--f-low);
+        background-color: transparent;
+        transition: color 0.3s;
+    }
+
+    #themes-selector button.active {
+        border-color: var(--f-high);
+        background-color: var(--f-high);
+    }
+
+    #themes-selector button:hover {
+        border-color: var(--f-high);
+    }
+
+    menu nav {
+        margin: 0;
+        padding: 0 4px 0 0;
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        border-right: 1px solid var(--f-low);
+    }
+
+    menu a {
+        padding: 4px 0;
+        font-size: 1rem;
+        line-height: 1rem;
+        color: var(--f-low);
+        text-decoration: none;
+        text-transform: uppercase;
+        border-radius: var(--border-radius-small);
+        transition: color 0.3s;
+    }
+
+    menu a.active {
+        color: transparent;
+        background-color: var(--f-high);
+    }
+
+    menu a:not(.active):hover {
+        color: var(--f-high);
     }
 }
