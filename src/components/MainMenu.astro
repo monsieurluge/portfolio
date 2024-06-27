@@ -5,19 +5,21 @@ const activeIfIn = (name: String) => currentPathRoot === name ? 'active' : ''
 ---
 
 <menu id="main-menu">
-    <ul id="themes-selector">
-        <li><button data-theme="sandstorm">sandstorm</button></li>
-        <li><button data-theme="tape">tape</button></li>
-        <li><button data-theme="appolo">appolo</button></li>
-        <li><button data-theme="marble">marble</button></li>
-        <li class="list-name">thèmes</li>
-    </ul>
-    <nav>
-        <a class={activeIfIn('contact')} href="/contact">contact</a>
+    <figure id="themes-selector">
+        <figcaption>thèmes</figcaption>
+        <ul >
+            <li><button data-theme="sandstorm">sandstorm</button></li>
+            <li><button data-theme="tape">tape</button></li>
+            <li><button data-theme="appolo">appolo</button></li>
+            <li><button data-theme="marble">marble</button></li>
+        </ul>
+    </figure>
+    <nav id="main-nav">
+        <a class={activeIfIn('')} href="/">accueil</a>
+        <a class={activeIfIn('projects')} href="/projects">projets</a>
         <a class={activeIfIn('photography')} href="/photography">galerie</a>
         <a class={activeIfIn('resume')} href="/resume">curriculum vitae</a>
-        <a class={activeIfIn('projects')} href="/projects">projets</a>
-        <a class={activeIfIn('')} href="/">accueil</a>
+        <a class={activeIfIn('contact')} href="/contact">contact</a>
     </nav>
     <button id="close-menu-button" class="menu-button hidden" onclick="closeMenu()">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -29,7 +31,7 @@ const activeIfIn = (name: String) => currentPathRoot === name ? 'active' : ''
             <path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="3" d="M12.01 12v.01H12V12zm7 0v.01H19V12zm-14 0v.01H5V12z"/>
         </svg>
     </button>
-</menu>
+</menu >
 
 <script is:inline>
     const buttonClose = document.getElementById('close-menu-button')

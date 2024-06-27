@@ -1,13 +1,19 @@
 @media (max-width: 760px) {
     :root {
-        /* spacing and sizes */
+        /* overrides */
         --box-spacing: 1.4rem 2rem;
         --content-spacing: 2rem;
         --content-width: 100%;
-        --heading-font-size: 2.2rem;
-        --main-menu-font-size: 1.5rem;
-        --nav-font-size: 1rem;
-        --title-size: 2rem;
+        --menu-font-size: 20px;
+        --menu-gap: 14px;
+        --nav-font-size: 2rem;
+        --theme-button-size: 16px;
+        /* mobile layout only */
+        --menu-button-icon-size: 3rem;
+        --menu-button-size: 4rem;
+        --menu-padding: 20px;
+        --nav-gap: .5rem;
+        --nav-padding: 1rem;
     }
 
     main {
@@ -20,16 +26,17 @@
     #main-menu {
         position: fixed;
         z-index: 2;
-        right: 20px;
-        bottom: 20px;
-        width: 4rem;
-        height: 4rem;
+        right: var(--menu-padding);
+        bottom: var(--menu-padding);
+        width: var(--menu-button-size);
+        height: var(--menu-button-size);
         margin: 0;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         padding: 0;
+        font-family: var(--menu-font);
         background-color: var(--f-high);
         border-radius: 2rem;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -48,63 +55,75 @@
 
     #themes-selector {
         position: absolute;
-        top: 2rem;
+        bottom: var(--menu-padding);
+        left: var(--menu-padding);
         display: none;
         flex-direction: row-reverse;
         align-items: center;
-        justify-content: center;
-        list-style-type: none;
-        width: 100%;
+        gap: var(--menu-gap);
         margin: 0;
-        padding: 0;
-        gap: 1.1rem;
     }
 
     #main-menu.opened #themes-selector {
         display: flex;
     }
 
-    .list-name {
-        font-size: 1.1rem;
-        line-height: 1.1rem;
-        color: var(--background);
+    #themes-selector figcaption {
+        font-size: var(--menu-font-size);
+        line-height: var(--menu-font-size);
+        color: var(--b-high);
         text-transform: uppercase;
     }
 
+    #themes-selector ul {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: center;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        gap: var(--menu-gap);
+    }
+
     #themes-selector button {
-        width: 1.1rem;
-        height: 1.1rem;
+        width: var(--theme-button-size);
+        height: var(--theme-button-size);
         padding: 0;
         color: transparent;
         text-indent: -100vh;
-        border: 1px solid var(--background);
+        border: 1px solid var(--b-high);
         background-color: transparent;
         transition: color 0.3s;
     }
 
     #themes-selector button.active {
-        border-color: var(--b-high);
         background-color: var(--b-high);
     }
 
-    #main-menu nav {
+    #main-nav {
         display: flex;
-        flex-direction: column-reverse;
-        gap: 8px;
+        flex-direction: column;
+        gap: var(--nav-gap);
         align-items: center;
+        width: 100%;
     }
 
-    #main-menu nav a {
+    #main-nav a {
+        max-width: 100%;
+        padding: var(--nav-padding);
         color: transparent;
+        font-size: var(--nav-font-size);
+        text-decoration: none;
+        text-transform: uppercase;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        transition: color 0.3s;
     }
 
     #main-menu.opened nav a {
-        padding: 1rem;
         color: var(--background);
-        font-size: 2rem;
-        text-decoration: none;
-        text-transform: uppercase;
-        transition: color 0.3s;
     }
 
     #main-menu.opened nav a.active {
@@ -116,8 +135,8 @@
         position: absolute;
         right: 0;
         bottom: 0;
-        width: 4rem;
-        height: 4rem;
+        width: var(--menu-button-size);
+        height: var(--menu-button-size);
         margin: 0;
         padding: 0;
         background-color: transparent;
@@ -125,8 +144,8 @@
     }
 
     .menu-button svg {
-        width: 3rem;
-        height: 3rem;
+        width: var(--menu-button-icon-size);
+        height: var(--menu-button-icon-size);
         color: var(--background);
     }
 
