@@ -99,13 +99,103 @@ const title = 'Galerie photo'
         <h2>{gallery.name}</h2>
         <div class="gallery">
             {gallery.photos.map(photo =>
-                <Image src={photosBaseUrl.concat(gallery.folder, '/', photo.name)} alt={photo.title} width="600" height="600" loading="lazy" class:list={['photo', photo.orientation]} />
+                <Image
+                    src={photosBaseUrl.concat(gallery.folder, '/', photo.name)}
+                    alt={photo.title}
+                    width="600"
+                    height="600"
+                    loading="lazy"
+                    class:list={['photo', photo.orientation]}
+                    data-gallery={gallery.folder}
+                    data-name={photo.name}
+                />
             )}
         </div>
     )}
+    <div id="full-image-viewer" class="closed">
+        <div>
+            <img src="gallery/japon/IMG_6306.jpg" alt="full image" />
+            <button>fermer</button>
+        </div>
+    </div>
 </PageLayout>
 
+<script is:inline define:vars={{ photosBaseUrl }}>
+    const viewer = document.getElementById('full-image-viewer')
+    const photos = document.querySelectorAll('.photo')
+    const fullImage = viewer.querySelector('img')
+    const closeButton = viewer.querySelector('button')
+
+    photos.forEach(photo => {
+        photo.addEventListener('click', () => {
+            viewer.classList.remove('closed')
+            fullImage.src = photosBaseUrl.concat(photo.dataset.gallery, '/', photo.dataset.name)
+        })
+    })
+
+    closeButton.addEventListener('click', () => viewer.classList.add('closed'))
+</script>
+
 <style>
+    #full-image-viewer {
+        z-index: 3;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        padding: 40px;
+        backdrop-filter: blur(10px);
+    }
+
+    #full-image-viewer.closed {
+        display: none;
+    }
+
+    #full-image-viewer>div {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        gap: 4px;
+        width: fit-content;
+        max-width: 100vw;
+        max-height: 100vh;
+    }
+
+    #full-image-viewer img {
+        ratio: preserve;
+        max-width: 100%;
+        max-height: calc(100% - 44px);
+        object-fit: contain;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+    }
+
+    #full-image-viewer button {
+        font-family: var(--menu-font);
+        text-transform: uppercase;
+        font-size: var(--menu-font-size);
+        color: var(--f-high);
+        width: fit-content;
+        height: 40px;
+        padding: 0 1rem 0 0;
+        background: none;
+        border: none;
+        outline: none;
+    }
+
+    #full-image-viewer button:hover {
+        color: var(--f-med);
+    }
+
+    #full-image-viewer button:active {
+        color: var(--f-high);
+    }
+
     .gallery {
         display: flex;
         flex-flow: row wrap;
