@@ -23,3 +23,18 @@ Exécute les scripts ci-dessous. L'action de `commit` est interrompue si au moin
 Exécute les scripts ci-dessous. L'action de `push` est interrompue si au moins l'une de ces étapes n'a pas correctement abouti
 
 - build
+
+## Commandes
+
+Toutes les commandes sont à lancer depuis la racine du projet.
+
+```bash
+# installe les dépendances
+npm run install
+# lance le serveur de développement
+npm run dev
+# génère le code de production dans le dossier ./dist
+npm run build
+# lance une commande via la CLI Astro (cf. https://docs.astro.build/en/reference/cli-reference/)
+npm run astro [command]
+```
