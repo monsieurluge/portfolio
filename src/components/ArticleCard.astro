@@ -1,12 +1,17 @@
 ---
 import { Image } from 'astro:assets'
 
-const { cover, coverAlt, title, url } = Astro.props
+const { cover, coverAlt, title, tags, url } = Astro.props
 ---
 
 <div class="article-card">
-    <a href={url}><Image class="cover" src={cover} alt={coverAlt} /></a>
-    <p class="name">{title}</p>
+    <a href={url} class="cover-link">
+        <Image class="cover" src={cover} alt={coverAlt} />
+    </a>
+    <ul class="description">
+        <li class="article-title">{title}</li>
+        {tags.map((tag: String) => <li>{tag}</li>)}
+    </ul>
 </div>
 
 <style>
@@ -15,39 +20,54 @@ const { cover, coverAlt, title, url } = Astro.props
         display: flex;
         flex-direction: column;
         justify-content: center;
+    }
+
+    .cover-link {
         aspect-ratio: 2 / 1;
+        width: 100%;
+        height: auto;
+        margin-bottom: 2px;
         border-radius: var(--border-radius-small);
         overflow: hidden;
     }
 
     .cover {
-        aspect-ratio: auto;
+        aspect-ratio: 2 / 1;
         width: 100%;
         height: auto;
-        filter: blur(5px);
-        transition: filter 0.3s;
+        object-fit: cover;
+        filter: unset;
+        transition: transform 0.3s;
     }
 
     .article-card:hover .cover {
-        filter: unset;
+        transform: scale(1.05);
     }
 
-    .name {
-        position: absolute;
-        bottom: 0px;
-        left: 0px;
-        max-width: 80%;
+    .description {
+        display: flex;
+        flex-direction: row;
         margin: 0;
-        padding: .5rem 1rem;
+        padding: 0;
         font-family: monospace;
-        font-size: 1rem;
-        color: var(--background);
-        background-color: var(--f-high);
-        border-top: 2px solid var(--background);
+        font-size: .8rem;
+        line-height: 1.6rem;
+        color: var(--f-high);
+        list-style-type: none;
+        background-color: var(--b-low);
+        border-radius: var(--border-radius-small);
+    }
+
+    .description li {
+        padding: 0 1.4em;
         border-right: 2px solid var(--background);
-        border-radius: 0 var(--border-radius-small) 0 0;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
+    }
+
+    .description li:last-child {
+        border-right: none;
+    }
+
+    .description .article-title {
+        flex: 1;
     }
 </style>

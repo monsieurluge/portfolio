@@ -7,6 +7,7 @@ const projectsCollection = defineCollection({
         coverAlt: z.string(),
         lastUpdate: z.string(),
         title: z.string(),
+        tags: z.string().array(),
     }),
 })
 
