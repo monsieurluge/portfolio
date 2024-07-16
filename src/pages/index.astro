@@ -3,59 +3,87 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 ---
 
 <BaseLayout title="accueil">
-    <h1>Laurent Vergé<span class="aka">aka</span><span class="pseudo">monsieurluge</span></h1>
+    <h1>Laurent Vergé</h1>
+    <p class="name-alias"><span class="aka" title="alias">aka</span> <span class="alias">monsieurluge</span></p>
     <p class="subtitle">développeur web senior</p>
     <section class="about-me">
         <h2>mentor</h2>
-        <p>partage les résultats de veille technologique</p>
-        <p>invite à l'échange via le pair programming, la revue de code</p>
-        <p>aide au changement d'habitudes, de process, de technos</p>
+        <p class="content">
+            <ul>
+                <li>partage les résultats de veille technologique</li>
+                <li>invite à l'échange via le pair programming, la revue de code</li>
+                <li>aide au changement d'habitudes, de process, de technos</li>
+            </ul>
+        </p>
     </section>
     <section class="about-me">
         <h2>agile</h2>
-        <p>accompagne les équipes & les clients</p>
-        <p>adapte les pratiques aux besoins</p>
-        <p>valorise la proximité avec le client</p>
+        <p class="content">
+            <ul>
+                <li>accompagne les équipes & les clients</p>
+                <li>adapte les pratiques aux besoins</li>
+                <li>valorise la proximité avec le client</li>
+            </ul>
+        </p>
     </section>
     <section class="about-me">
         <h2>full stack</h2>
-        <p>frontend<span class="separator"> :: </span>javascript<span class="separator"> • </span>JQuery<span class="separator"> • </span>Vue</p>
-        <p>backend<span class="separator"> :: </span>Linux<span class="separator"> • </span>Node<span class="separator"> • </span>PHP<span class="separator"> • </span>SGBDR</p>
-        <p>qualité<span class="separator"> :: </span>ESLint<span class="separator"> • </span>SonarQube<span class="separator"> • </span>clean archi<span class="separator"> • </span>TDD</p>
-        <p>infrastructure<span class="separator"> :: </span>Linux<span class="separator"> • </span>git<span class="separator"> • </span>Docker<span class="separator"> • </span>Nginx<span class="separator"> • </span>Apache</p>
-        <p>monitoring<span class="separator"> :: </span>Grafana<span class="separator"> • </span>Datadog</p>
-        <p>déploiement<span class="separator"> :: </span>CI-CD<span class="separator"> • </span>GitLab CI<span class="separator"> • </span>github actions<span class="separator"> • </span>Jenkins</p>
+        <p class="content">
+            <ul>
+                <li>frontend<span class="separator"> :: </span>javascript<span class="separator"> • </span>JQuery<span class="separator"> • </span>Vue</p>
+                <li>backend<span class="separator"> :: </span>Linux<span class="separator"> • </span>Node<span class="separator"> • </span>PHP<span class="separator"> • </span>SGBDR</li>
+                <li>qualité<span class="separator"> :: </span>ESLint<span class="separator"> • </span>SonarQube<span class="separator"> • </span>clean archi<span class="separator"> • </span>TDD</li>
+                <li>infrastructure<span class="separator"> :: </span>Linux<span class="separator"> • </span>git<span class="separator"> • </span>Docker<span class="separator"> • </span>Nginx<span class="separator"> • </span>Apache</li>
+                <li>monitoring<span class="separator"> :: </span>Grafana<span class="separator"> • </span>Datadog</li>
+                <li>déploiement<span class="separator"> :: </span>CI-CD<span class="separator"> • </span>GitLab CI<span class="separator"> • </span>github actions<span class="separator"> • </span>Jenkins</li>
+            </ul>
+        </p>
     </section>
 </BaseLayout>
 
 <style>
     h1 {
-        margin: 0;
-        font-size: 3rem;
-        font-family: chopin, sans-serif;
+        margin: -.5rem 0 0;
+        line-height: 4rem;
+        font-size: 4rem;
+    }
+
+    .name-alias {
+        margin: -.2rem 0 0 4px;
+        color: var(--f-low);
+        font-size: 1rem;
+        font-family: monospace;
+        font-weight: light;
     }
 
     .aka {
-        font-size: 1.4rem;
-        filter: opacity(30%);
+        position: relative;
+        opacity: 50%;
     }
 
-    .pseudo {
-        font-size: 1.4rem;
-        filter: opacity(76%);
+    .aka::after {
+        position: absolute;
+        font-size: .6em;
+        top: -.4em;
+        right: -.5em;
+        content: '*';
+    }
+
+    .alias {
     }
 
     .subtitle {
-        margin: -.5rem 0 8rem;
-        font-family: monospace;
+        margin: 0 0 8rem;
+        line-height: 2rem;
+        font-size: 2rem;
+        font-family: var(--title-font);
     }
 
     .about-me {
-        margin: 0 0 8px;
+        margin: 0 0 2px;
         padding: var(--box-spacing);
         background-color: var(--b-low);
-        border: 1px solid var(--b-med);
-        border-radius: 3px;
+        border-radius: var(--border-radius-small);
     }
 
     .about-me:last-child {
@@ -63,14 +91,28 @@ import BaseLayout from '../layouts/BaseLayout.astro'
     }
 
     .about-me h2 {
-        margin: 0;
-        font-family: chopin;
-        font-size: 1.8rem;
+        margin: 0 0 16px;
+        padding: 0;
+        color: var(--f-med);
+        font-size: 1.6rem;
+        line-height: 1.6rem;
+    }
+
+    .about-me .content {
+        color: var(--f-high);
     }
 
     .about-me p {
         margin: 0;
-        color: var(--f-med);
+    }
+
+    .about-me ul {
+        margin: 0;
+        padding: 0 0 0 1em;
+    }
+
+    .about-me ul li::marker {
+        color: var(--f-low);
     }
 
     .separator {

@@ -16,7 +16,7 @@
     /* spacing and sizes */
     --border-radius-large: 16px;
     --border-radius-small: 3px;
-    --box-spacing: 1.4rem 2rem;
+    --box-spacing: 1.6rem;
     --content-spacing: 3rem;
     --content-width: 600px;
     --heading-font-size: 2.2rem;
@@ -73,7 +73,7 @@ body {
 }
 
 h1, h2 {
-    font-family: chopin;
+    font-family: chopin, sans-serif;
     font-weight: normal;
 }
 
