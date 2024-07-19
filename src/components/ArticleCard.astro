@@ -9,7 +9,7 @@ const { cover, coverAlt, title, tags, url } = Astro.props
         <Image class="cover" src={cover} alt={coverAlt} />
     </a>
     <ul class="description">
-        <li class="article-title">{title}</li>
+        <li class="article-title"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 19.5v-15m0 0l-6 5.625M12 4.5l6 5.625"/></svg>{title}</li>
         {tags.map((tag: String) => <li>{tag}</li>)}
     </ul>
 </div>
@@ -54,20 +54,26 @@ const { cover, coverAlt, title, tags, url } = Astro.props
         line-height: 1.6rem;
         color: var(--f-high);
         list-style-type: none;
-        background-color: var(--b-low);
+        background-color: var(--b-med);
         border-radius: var(--border-radius-small);
     }
 
-    .description li {
-        padding: 0 1.4em;
+    li {
+        padding: 0 1.2em;
         border-right: 2px solid var(--background);
     }
 
-    .description li:last-child {
+    li:last-child {
         border-right: none;
     }
 
-    .description .article-title {
+    .article-title {
         flex: 1;
+    }
+
+    .article-title svg {
+        width: .8em;
+        height: .8em;
+        margin-right: .4em;
     }
 </style>

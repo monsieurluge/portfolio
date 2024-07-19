@@ -13,12 +13,11 @@ h4, h5, h6 {
 }
 
 h1 {
-    margin: 0;
-    padding: var(--box-spacing);
+    margin: 0 0 var(--content-spacing);
+    padding: 0;
     font-size: var(--title-size);
-    line-height: 3rem;
-    color: var(--background);
-    background-color: var(--f-high);
+    line-height: calc(var(--title-size) * 0.6);
+    color: var(--f-high);
 }
 
 h2 {
@@ -49,7 +48,8 @@ p {
 }
 
 p:nth-child(2) {
-    margin: 2px 0;
+    margin: 0;
+    padding: 0;
 }
 
 ul {

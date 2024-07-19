@@ -43,13 +43,13 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 
 <style>
     h1 {
-        margin: -.5rem 0 0;
-        line-height: 4rem;
-        font-size: 4rem;
+        margin: 0;
+        font-size: var(--title-size);
+        line-height: calc(var(--title-size)* 0.6);
     }
 
     .name-alias {
-        margin: -.2rem 0 0 4px;
+        margin: 8px 0 0 4px;
         color: var(--f-low);
         font-size: 1rem;
         font-family: monospace;
@@ -69,13 +69,12 @@ import BaseLayout from '../layouts/BaseLayout.astro'
         content: '*';
     }
 
-    .alias {
-    }
+    .alias {}
 
     .subtitle {
         margin: 0 0 8rem;
-        line-height: 2rem;
         font-size: 2rem;
+        line-height: 1.6rem;
         font-family: var(--title-font);
     }
 
