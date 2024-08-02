@@ -5,13 +5,15 @@ const { cover, coverAlt, title, tags, url } = Astro.props
 ---
 
 <div class="article-card">
+    <p class="article-title">{title}</p>
     <a href={url} class="cover-link">
         <Image class="cover" src={cover} alt={coverAlt} />
     </a>
-    <ul class="description">
-        <li class="article-title"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 19.5v-15m0 0l-6 5.625M12 4.5l6 5.625"/></svg>{title}</li>
-        {tags.map((tag: String) => <li>{tag}</li>)}
-    </ul>
+    <div class="description">
+        <ul class="tags">
+            {tags.map((tag: String) => <li>{tag}</li>)}
+        </ul>
+    </div>
 </div>
 
 <style>
@@ -22,12 +24,52 @@ const { cover, coverAlt, title, tags, url } = Astro.props
         justify-content: center;
     }
 
+    .article-title {
+        position: relative;
+        margin: 0 0 2px;
+        padding: 0 1em 0 0;
+        font-size: .8rem;
+        line-height: var(--list-line-height);
+        font-family: monospace;
+        font-weight: normal;
+        text-align: right;
+        text-transform: uppercase;
+        color: var(--f-high);
+        background-color: var(--f-high);
+        border-right: 8px solid var(--b-high);
+        transition: border var(--transition-duration);
+
+        --dot-bg: var(--b-low);
+        --dot-color: var(--f-low);
+        --dot-size: 1px;
+        --dot-space: 3px;
+        background:
+      		linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+      		linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+      		var(--dot-color);
+    }
+
+    .article-title::before {
+        content: "↙";
+        margin-right: 4px;
+        color: var(--f-low);
+        transition: color var(--transition-duration);
+    }
+
+    .article-card:hover .article-title {
+        border-color: var(--f-med);
+    }
+
+    .article-card:hover .article-title::before {
+        color: var(--f-med);
+    }
+
     .cover-link {
         aspect-ratio: 2 / 1;
         width: 100%;
         height: auto;
         margin-bottom: 2px;
-        border-radius: var(--border-radius-small);
+        border: unset;
         overflow: hidden;
     }
 
@@ -44,36 +86,35 @@ const { cover, coverAlt, title, tags, url } = Astro.props
         transform: scale(1.05);
     }
 
-    .description {
+    .tags {
         display: flex;
         flex-direction: row;
+        flex-wrap: no-wrap;
+        justify-content: left;
         margin: 0;
         padding: 0;
         font-family: monospace;
         font-size: .8rem;
-        line-height: 1.6rem;
         color: var(--f-high);
         list-style-type: none;
-        background-color: var(--b-med);
-        border-radius: var(--border-radius-small);
+        overflow: hidden;
+        background-color: var(--b-low);
     }
 
     li {
-        padding: 0 1.2em;
+        padding: 2px .5em;
+        font-size: .8rem;
+        text-align: center;
+        white-space: nowrap;
+        color: var(--f-low);
         border-right: 2px solid var(--background);
+        transition:
+            background-color var(--transition-duration),
+            color var(--transition-duration);
     }
 
-    li:last-child {
-        border-right: none;
-    }
-
-    .article-title {
-        flex: 1;
-    }
-
-    .article-title svg {
-        width: .8em;
-        height: .8em;
-        margin-right: .4em;
+    .article-card:hover li {
+        color: var(--f-high);
+        background-color: var(--b-med);
     }
 </style>

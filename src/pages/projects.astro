@@ -3,12 +3,24 @@ import { getCollection } from 'astro:content'
 import ArticleCard from '../components/ArticleCard.astro'
 import PageLayout from '../layouts/PageLayout.astro'
 
-const description = "Projets parfois aboutis. Expérimentations étranges. Code en dehors des tendances. Il y a un peu de tout et surtout beaucoup de moi."
 const title = 'Projets'
 const projects = await getCollection('projects')
 ---
 
-<PageLayout description={description} title={title}>
+<PageLayout title={title}>
+    <div slot="description">
+        <p>Projets parfois aboutis ; expérimentations étranges ; code en dehors des tendances ; il y a un peu de tout et surtout beaucoup de moi.</p>
+        <p>Cette liste présente des projets sur lesquels j'ai pris plaisir à travailler en dehors du cadre professionnel. Il ne s'agit aucunement de démonstration de compétences mais plutôt une manière de partager mes sources d'intérêts et explorations.</p>
+        <p>Mon <a href="https://github.com/monsieurluge" target="_blank">dépôt github</a> héberge bien d'autres projets souvent démarrés et laissés de côté rapidement pour raisons diverses. Je ne peux garantir les reprendre un jour mais l'idée est toujours là, rangée dans un coin.</p>
+        <p>Contexte de développement :</p>
+        <ul>
+            <li>matériel /// Macbook Pro M1</li>
+            <li>clavier /// <a href="https://github.com/foostan/crkbd" target="_blank">corne 40% split</a></li>
+            <li>éditeur de code /// <a href="https://zed.dev" target="_blank">Zed</a></li>
+            <li>client git /// <a href="https://www.sublimemerge.com" target="_blank">Sublime Merge</a></li>
+            <li>outil API /// <a href="https://insomnia.rest" target="_blank">Insomnia</a></li>
+        </ul>
+    </div>
     <div class="articles">
         {projects.map(project =>
             <ArticleCard
@@ -26,6 +38,6 @@ const projects = await getCollection('projects')
     .articles {
         display: flex;
         flex-direction: column;
-        gap: 2px;
+        gap: 1.6rem;
     }
 </style>

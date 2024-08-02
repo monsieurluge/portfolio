@@ -1,5 +1,6 @@
 ---
-import MainMenu from '../components/MainMenu.astro'
+import Header from '../components/Header.astro'
+import Menu from '../components/Menu.astro'
 import ThemeManager from '../components/ThemeManager.astro'
 import '../styles/global.css';
 import '../styles/desktop-layout.css';
@@ -18,8 +19,9 @@ const { title } = Astro.props
 </head>
 <body>
     <main>
+        <Header title={title} />
+        <Menu />
         <slot />
     </main>
-    <MainMenu />
 </body>
 </html>

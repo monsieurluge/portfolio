@@ -1,0 +1,189 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPathRoot = pathname.slice(1).split('/').shift();
+const activeIfAt = (name: String) => currentPathRoot === name ? 'active' : ''
+---
+
+<menu id="menu">
+    <figure id="themes-selector">
+        <figcaption>thèmes</figcaption>
+        <ul >
+            <li><button data-theme="sandstorm">sandstorm</button></li>
+            <li><button data-theme="tape">tape</button></li>
+            <li><button data-theme="appolo">appolo</button></li>
+            <li><button data-theme="marble">marble</button></li>
+        </ul>
+    </figure>
+    <nav id="main-nav">
+        <a class={activeIfAt('')} href="/">accueil</a>
+        <a class={activeIfAt('projects')} href="/projects">projets</a>
+        <a class={activeIfAt('photography')} href="/photography">galerie</a>
+        <a class={activeIfAt('resume')} href="/resume">curriculum vitae</a>
+        <a class={activeIfAt('contact')} href="/contact">contact</a>
+    </nav>
+    <button id="close-menu-button" class="menu-button hidden" onclick="closeMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7 7l10 10M7 17L17 7"/>
+        </svg>
+    </button>
+    <button id="open-menu-button" class="menu-button" onclick="openMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="3" d="M12.01 12v.01H12V12zm7 0v.01H19V12zm-14 0v.01H5V12z"/>
+        </svg>
+    </button>
+</menu >
+
+<script is:inline>
+    const buttonClose = document.getElementById('close-menu-button')
+    const buttonOpen = document.getElementById('open-menu-button')
+    const menu = document.getElementById('main-menu')
+
+    function closeMenu() {
+        menu.classList.remove('opened')
+        buttonClose.classList.add('hidden')
+        buttonOpen.classList.remove('hidden')
+    }
+
+    function openMenu() {
+        menu.classList.add('opened')
+        buttonOpen.classList.add('hidden')
+        buttonClose.classList.remove('hidden')
+    }
+
+    document.getElementById('themes-selector').addEventListener('click', ({ target }) => {
+        if (target.tagName !== 'BUTTON') return
+        theme.setTheme(target.dataset.theme)
+    })
+
+    document.addEventListener('theme-changed', ({ detail }) => {
+        document.querySelectorAll('#themes-selector button').forEach(button => {
+            button.classList.toggle('active', button.dataset.theme === detail.theme)
+        })
+    })
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const currentTheme = theme.getTheme()
+        document.querySelectorAll('#themes-selector button').forEach(button => {
+            button.classList.toggle('active', button.dataset.theme === currentTheme)
+        })
+    })
+</script>
+
+<style>
+    menu {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        gap: 2px;
+        color: var(--f-high);
+        border-bottom: 2px solid var(--f-high);
+    }
+
+    #themes-selector {
+        margin: 0;
+        padding: 0 var(--menu-gap);
+        display: flex;
+        flex-direction: row;
+        gap: var(--menu-gap);
+        align-items: center;
+        border-right: 2px solid var(--f-high);
+    }
+
+    #themes-selector figcaption {
+        font-family: monospace;
+        text-transform: uppercase;
+        font-size: .8rem;
+    }
+
+    #themes-selector ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        gap: var(--menu-gap);
+        list-style-type: none;
+    }
+
+    #themes-selector li {
+        height: var(--theme-button-size);
+        line-height: var(--theme-button-size);
+        text-align: center;
+    }
+
+    #themes-selector button {
+        width: var(--theme-button-size);
+        height: var(--theme-button-size);
+        padding: 0;
+        color: transparent;
+        text-indent: -100vh;
+        border: 1px solid var(--f-low);
+        background-color: transparent;
+        transition: color 0.3s;
+        cursor: pointer;
+    }
+
+    #themes-selector button.active {
+        border-color: var(--f-med);
+        background-color: var(--f-med);
+    }
+
+    #themes-selector button:hover {
+        border-color: var(--f-high);
+    }
+
+    #main-nav {
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1;
+        gap: var(--menu-gap);
+        align-items: center;
+        justify-content: space-between;
+
+        --dot-bg: var(--background);
+        --dot-color: var(--f-low);
+        --dot-size: 1px;
+        --dot-space: 3px;
+        background:
+    		linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+    		linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+    		var(--dot-color);
+    }
+
+    #main-nav a {
+        position: relative;
+        margin: 4px;
+        padding: 0 4px;
+        white-space: nowrap;
+        font-size: .8rem;
+        text-decoration: none;
+        text-transform: uppercase;
+        border: unset;
+        border-radius: var(--border-radius-small);
+        transition: color 0.3s, background-color 0.3s;
+    }
+
+    #main-nav a.active {
+        color: transparent;
+        background-color: var(--f-med);
+    }
+
+    #main-nav a.active::after {
+        content: '▾';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        font-size: 1em;
+        line-height: 1em;
+        color: var(--background);
+        text-align: center;
+    }
+
+    #main-nav a:not(.active):hover {
+        color: var(--b-low);
+        background-color: var(--f-high);
+    }
+</style>

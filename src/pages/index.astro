@@ -1,11 +1,15 @@
 ---
+import { Code } from 'astro:components'
 import BaseLayout from '../layouts/BaseLayout.astro'
 ---
 
 <BaseLayout title="accueil">
-    <h1>Laurent Vergé</h1>
-    <p class="name-alias"><span class="aka" title="alias">aka</span> <span class="alias">monsieurluge</span></p>
-    <p class="subtitle">développeur web senior</p>
+    <header>
+        <p id="fullname">Laurent Vergé</p>
+        <p id="alias"><span class="aka">aka</span> @monsieurluge</p>
+        <p id="job-title">développeur web full stack senior</p>
+    </header>
+    <img src="/images/room2.jpg" alt="illustration représentant un bureau envahi par la végétation" />
     <section class="about-me">
         <h2>mentor</h2>
         <p class="content">
@@ -42,75 +46,104 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 </BaseLayout>
 
 <style>
-    h1 {
-        margin: 0;
-        font-size: var(--title-size);
-        line-height: calc(var(--title-size)* 0.6);
+    header {
+        margin: var(--content-spacing) 0;
+        padding: 0 0 0 2px;
+        color: var(--f-high);
+        border-left: 6px solid var(--f-high);
+        transition: border-left var(--transition-duration);
     }
 
-    .name-alias {
-        margin: 8px 0 0 4px;
-        color: var(--f-low);
-        font-size: 1rem;
+    header:hover {
+        border-left: 6px solid var(--f-med);
+    }
+
+    header p {
+        margin: 0;
+        padding: 0;
+        background-color: var(--b-low);
+        transition: background-color var(--transition-duration);
+    }
+
+    header p:hover {
+        background-color: var(--b-med);
+    }
+
+    #fullname {
+        margin-bottom: 2px;
+        padding: 16px 1rem;
         font-family: monospace;
-        font-weight: light;
+        font-weight: normal;
+        font-size: 2rem;
+    }
+
+    #alias {
+        margin-bottom: 2px;
+        padding: 0 1rem;
+        font-family: monospace;
+        font-size: .8rem;
+        line-height: 1.6rem;
+    }
+
+    #job-title {
+        padding: 16px 1rem;
+        font-family: monospace;
+        font-size: 1rem;
     }
 
     .aka {
-        position: relative;
-        opacity: 50%;
+        color: var(--f-low);
     }
 
-    .aka::after {
-        position: absolute;
-        font-size: .6em;
-        top: -.4em;
-        right: -.5em;
-        content: '*';
-    }
-
-    .alias {}
-
-    .subtitle {
-        margin: 0 0 8rem;
-        font-size: 2rem;
-        line-height: 1.6rem;
-        font-family: var(--title-font);
+    img {
+        max-width: 100%;
+        box-sizing: border-box;
+        margin-bottom: var(--content-spacing);
     }
 
     .about-me {
-        margin: 0 0 2px;
-        padding: var(--box-spacing);
-        background-color: var(--b-low);
-        border-radius: var(--border-radius-small);
-    }
-
-    .about-me:last-child {
-        margin-bottom: 0;
-    }
-
-    .about-me h2 {
-        margin: 0 0 16px;
+        margin: 0 0 1.6rem 0;
         padding: 0;
-        color: var(--f-med);
-         font-size: 1.6rem;
-        line-height: 1.6rem;
-    }
-
-    .about-me .content {
         color: var(--f-high);
     }
 
-    .about-me p {
+    .about-me:hover h2 {
+        border-color: var(--f-med);
+    }
+
+    .about-me:hover h2::before {
+        color: var(--f-med);
+    }
+
+    .about-me .content {
         margin: 0;
+        padding: 0;
     }
 
     .about-me ul {
         margin: 0;
-        padding: 0 0 0 1em;
+        padding: 0;
+        cursor: default;
+    }
+
+    .about-me ul li {
+        color: var(--f-high);
+        line-height: var(--list-line-height);
+        border-bottom: 2px solid var(--f-low);
+        transition: color var(--transition-duration);
     }
 
     .about-me ul li::marker {
+        content: "+ ";
+        color: var(--f-low);
+        transition: color var(--transition-duration);
+    }
+
+    .about-me ul li:hover::marker {
+        color: var(--f-med);
+    }
+
+    .about-me ul:hover li:not(:hover) {
         color: var(--f-low);
     }
 

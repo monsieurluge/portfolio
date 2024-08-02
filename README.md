@@ -38,3 +38,9 @@ npm run build
 # lance une commande via la CLI Astro (cf. https://docs.astro.build/en/reference/cli-reference/)
 npm run astro [command]
 ```
+
+## Crédits images
+
+### accueil
+
+[room.2](https://www.artstation.com/artwork/Ead5J8) par [Krzysztof Maziarz](https://www.artstation.com/krzymsky)

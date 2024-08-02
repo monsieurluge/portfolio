@@ -19,12 +19,14 @@
     --box-spacing: 1.6rem;
     --content-spacing: 3rem;
     --content-width: 600px;
-    --heading-font-size: 2.2rem;
+    --heading-font-size: 1.4rem;
+    --list-line-height: 1.6rem;
     --menu-font-size: 1.1rem;
-    --menu-gap: .5rem;
+    --menu-gap: 8px;
     --nav-font-size: 1rem;
     --theme-button-size: 12px;
-    --title-size: 5rem;
+    --title-size: 2.2rem;
+    --transition-duration: .3s;
 }
 
 @font-face {
@@ -72,13 +74,14 @@ body {
     margin: 0;
 }
 
-h1, h2 {
-    font-family: chopin, sans-serif;
-    font-weight: normal;
-}
-
 a {
     color: var(--f-high);
+    text-decoration: none;
+    border-bottom: 2px solid var(--f-low);
+}
+
+a:hover {
+    color: var(--f-med);
 }
 
 a[target="_blank"]::after {
@@ -89,4 +92,69 @@ a[target="_blank"]::after {
 ::selection {
     color: var(--f-inv);
     background-color: var(--b-inv);
+}
+
+h1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: var(--content-spacing) 0 var(--box-spacing) 0;
+    padding: 0 2em 0 0;
+    font-family: monospace;
+    font-size: var(--heading-font-size);
+    font-weight: normal;
+    text-align: right;
+    text-transform: uppercase;
+    color: var(--f-high);
+    border: 2px solid var(--f-high);
+}
+
+h1::before {
+    content: "";
+    flex: 1;
+    height: 2.4rem;
+    margin: 2px;
+    margin-right: 2em;
+    color: var(--f-low);
+
+    --dot-bg: var(--f-high);
+    --dot-color: var(--b-high);
+    --dot-size: 1px;
+    --dot-space: 3px;
+    background:
+		linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+		linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+		var(--dot-color);
+}
+
+h2 {
+    position: relative;
+    margin: 0 0 4px;
+    padding: 0 1em 0 0;
+    font-size: .8rem;
+    line-height: var(--list-line-height);
+    font-family: monospace;
+    font-weight: normal;
+    text-align: right;
+    text-transform: uppercase;
+    color: var(--f-high);
+    background-color: var(--f-high);
+    border-right: 8px solid var(--b-high);
+    transition: border var(--transition-duration);
+
+    --dot-bg: var(--b-low);
+    --dot-color: var(--f-low);
+    --dot-size: 1px;
+    --dot-space: 3px;
+    background:
+  		linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+  		linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+  		var(--dot-color);
+}
+
+h2::before {
+    content: "↙";
+    margin-right: 4px;
+    color: var(--f-low);
+    transition: color var(--transition-duration);
 }

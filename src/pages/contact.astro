@@ -6,6 +6,7 @@ const webFormAccessKey = 'e62af265-1882-4863-9324-8adc20fc732a'
 ---
 
 <BaseLayout title={title}>
+    <h1>{title}</h1>
     <form method="POST" id="form">
         <input type="hidden" name="access_key" value={webFormAccessKey}>
         <input type="hidden" name="subject" value="[monsieurluge.dev] Prise de contact depuis le portfolio">
@@ -69,9 +70,9 @@ const webFormAccessKey = 'e62af265-1882-4863-9324-8adc20fc732a'
     form {
         display: flex;
         flex-direction: column;
-        padding: var(--content-spacing);
+        margin: var(--content-spacing) 0;
+        padding: var(--box-spacing);
         background-color: var(--b-low);
-        border-radius: var(--border-radius-small);
     }
 
     label {
@@ -86,14 +87,20 @@ const webFormAccessKey = 'e62af265-1882-4863-9324-8adc20fc732a'
     }
 
     input, textarea {
+        width: 100%;
         margin-bottom: 1rem;
         padding: .5rem 1rem;
         font-family: serif;
         font-size: 1rem;
         color: var(--f-high);
         background-color: var(--background);
-        border: 1px solid var(--b-med);
+        border: 2px solid var(--f-high);
         outline: none;
+    }
+
+    textarea {
+        min-height: 10em;
+        resize: vertical;
     }
 
     input::placeholder, textarea::placeholder {

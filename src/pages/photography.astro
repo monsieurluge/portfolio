@@ -2,7 +2,6 @@
 import { Image } from 'astro:assets'
 import PageLayout from '../layouts/PageLayout.astro'
 
-const description = "Sélection de photos que j'ai pu prendre au gré de mes promenades, sur notre sol ou ailleurs, sans but précis ou avec une idée en tête, toujours à la recherche du plaisir de prendre des photos."
 const galleries = [
     {
         folder: 'japon',
@@ -94,49 +93,95 @@ const photosBaseUrl = import.meta.env.GALLERY_BASE_URL
 const title = 'Galerie photo'
 ---
 
-<PageLayout description={description} title={title}>
+<PageLayout title={title}>
+    <div slot="description">
+        <p>Sélection de photos que j'ai pu prendre au gré de mes promenades, sur notre sol ou ailleurs, sans but précis ou avec une idée en tête, toujours à la recherche du plaisir de prendre des photos.</p>
+        <p>Je travaille sans flash, préférant passer à côté d'un moment plutôt qu'éclairer artificiellement une scène. De manière générale j'évite de trop retoucher un cliché (ex: suppression d'élément, traitement HDR) et me contente d'équilibrer les courbes et les couleurs pour un rendu le plus proche de ce que j'avais en tête lors de la prise de vue. J'évite également de compter sur le crop (élimination de portions d'image) et travaille plutôt la composition dès le déclenchement.</p>
+        <p>La majorité de mes clichés sont issus de sorties familiales et ne peuvent donc pas être présentés ici. Je ne désespère pas me donner le temps de marcher de nouveau à la recherche de sujets à photographier ; mettre à jour cette modeste galerie pourrait être le levier nécessaire.</p>
+        <p>Matériel utilisé :</p>
+        <ul>
+            <li>DxO PhotoLab & DxO FilmPack [logiciel de développement]</li>
+            <li>compact Fujifilm X100F focale fixe 35mm f2.0</li>
+            <li>reflex semi-pro Canon EOS 7D</li>
+            <li>objectif Canon 50mm f1.8</li>
+            <li>objectif Canon 15-55mm f2.8</li>
+            <li>objectif Canon 70-200mm f2.8</li>
+        </ul>
+    </div>
     {galleries.map(gallery =>
-        <h2>{gallery.name}</h2>
-        <div class="gallery">
-            {gallery.photos.map(photo =>
-                <Image
-                    src={photosBaseUrl.concat(gallery.folder, '/', photo.name)}
-                    alt={photo.title}
-                    width="600"
-                    height="600"
-                    loading="lazy"
-                    class:list={['photo', photo.orientation]}
-                    data-gallery={gallery.folder}
-                    data-name={photo.name}
-                />
-            )}
-        </div>
+        <section class="gallery-theme">
+            <h2>{gallery.name}</h2>
+            <div class="gallery">
+                {gallery.photos.map(photo =>
+                    <Image
+                        src={photosBaseUrl.concat(gallery.folder, '/', photo.name)}
+                        alt={photo.title}
+                        width="600"
+                        height="600"
+                        loading="lazy"
+                        class:list={['photo', photo.orientation]}
+                        data-gallery={gallery.folder}
+                        data-name={photo.name}
+                    />
+                )}
+            </div>
+        </section>
     )}
     <div id="full-image-viewer" class="closed">
         <div>
             <img src="gallery/japon/IMG_6306.jpg" alt="full image" />
-            <button>fermer</button>
+            <button data-action="close">fermer</button>
         </div>
     </div>
 </PageLayout>
 
 <script is:inline define:vars={{ photosBaseUrl }}>
     const viewer = document.getElementById('full-image-viewer')
-    const photos = document.querySelectorAll('.photo')
+    const closeButton = viewer.querySelector('button[data-action="close"]')
     const fullImage = viewer.querySelector('img')
-    const closeButton = viewer.querySelector('button')
+    const photos = document.querySelectorAll('.photo')
+
+    function preventScroll(e) {
+        e.preventDefault()
+        e.stopPropagation()
+        return false
+    }
+
+    closeButton.addEventListener('click', () => {
+        viewer.classList.add('closed')
+        document.querySelector('body').removeEventListener('wheel', preventScroll)
+    })
+
+    fullImage.addEventListener('click', event => event.stopPropagation())
 
     photos.forEach(photo => {
         photo.addEventListener('click', () => {
-            viewer.classList.remove('closed')
             fullImage.src = photosBaseUrl.concat(photo.dataset.gallery, '/', photo.dataset.name)
+            viewer.classList.remove('closed')
+
+            document.querySelector('body').addEventListener('wheel', preventScroll, { passive: false })
         })
     })
 
-    closeButton.addEventListener('click', () => viewer.classList.add('closed'))
+    viewer.addEventListener('click', () => {
+        viewer.classList.add('closed')
+        document.querySelector('body').removeEventListener('wheel', preventScroll)
+    })
 </script>
 
 <style>
+    .gallery-theme {
+        margin: 0 0 var(--content-spacing);
+    }
+
+    .gallery-theme:hover h2 {
+        border-color: var(--f-med);
+    }
+
+    .gallery-theme:hover h2::before {
+        color: var(--f-med);
+    }
+
     #full-image-viewer {
         z-index: 3;
         position: fixed;
@@ -205,8 +250,16 @@ const title = 'Galerie photo'
     .photo {
         flex: 1;
         width: auto;
+        min-width: 32px;
         height: 160px;
         object-fit: cover;
+        border-radius: var(--border-radius-small);
+        overflow: hidden;
+        transition: transform var(--transition-duration);
+    }
+
+    .photo:hover {
+        transform: scale(1.10);
     }
 
     .landscape {

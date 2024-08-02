@@ -2,36 +2,24 @@
     line-height: 1.5rem;
 }
 
-h1,
-h2,
+h2 {
+    margin: 2rem 0;
+    border-color: var(--f-med);
+}
+
+h2::before {
+    color: var(--f-med);
+}
+
 h3 {
-    font-family: var(--title-font);
+    padding-left: .5rem;
+    font-size: 1.6rem;
+    font-weight: normal;
+    border-left: 8px solid var(--f-med);
 }
 
 h4, h5, h6 {
     font-family: serif;
-}
-
-h1 {
-    margin: 0 0 var(--content-spacing);
-    padding: 0;
-    font-size: var(--title-size);
-    line-height: calc(var(--title-size) * 0.6);
-    color: var(--f-high);
-}
-
-h2 {
-    margin: var(--content-spacing) 0;
-    padding: 0 0 8px;
-    font-size: 2rem;
-    color: var(--f-med);
-    border-bottom: 1px solid var(--f-med);
-}
-
-h3 {
-    font-size: 1.6rem;
-    padding-left: .5rem;
-    border-left: .5rem solid var(--f-med);
 }
 
 img {
@@ -40,6 +28,7 @@ img {
 }
 
 img:first-child {
+    margin: var(--box-spacing) 0;
     width: var(--content-width);
 }
 

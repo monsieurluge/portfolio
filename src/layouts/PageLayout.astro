@@ -1,14 +1,14 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 
-const { description, title } = Astro.props
+const { title } = Astro.props
 ---
 
 <BaseLayout title={title}>
     <article>
         <header>
             <h1>{title}</h1>
-            {description && <p class="description">{description}</p>}
+            <div id="page-description"><slot name="description" /></div>
         </header>
         <slot />
     </article>
@@ -16,23 +16,14 @@ const { description, title } = Astro.props
 
 <style>
     header {
-        margin-bottom: var(--content-spacing);
+        margin: var(--content-spacing) 0;
     }
 
-    h1 {
-        margin: 0 0 var(--content-spacing);
-        padding: 0;
-        font-size: var(--title-size);
-        line-height: calc(var(--title-size)* 0.6);
-        color: var(--f-high);
-    }
-
-    .description {
-        margin: 0 0 var(--content-spacing);
-        padding: 2em;
+    #page-description {
+        margin: 0;
+        padding: 0 0 1em;
         font-family: monospace;
         color: var(--f-high);
-        background-color: var(--b-low);
-        border-radius: var(--border-radius-small);
+        border-bottom: 2px solid var(--f-high);
     }
 </style>

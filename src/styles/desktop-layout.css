@@ -2,106 +2,12 @@
     main {
         position: relative;
         width: var(--content-width);
-        margin: var(--content-spacing) auto;
-    }
-
-    #main-menu {
-        position: fixed;
-        top: var(--content-spacing);
-        right: calc(50% + var(--content-width) / 2 + 8px);
-        margin: 0;
-        display: flex;
-        flex-direction: row;
-        gap: 2px;
-        font-family: var(--menu-font);
+        min-height: 100dvh;
+        margin: 0 0 0 10%;
+        padding: 0 0 8rem;
     }
 
     .menu-button {
         display: none;
-    }
-
-    #themes-selector {
-        display: flex;
-        flex-direction: column-reverse;
-        justify-content: flex-end;
-        gap: var(--menu-gap);
-        margin: 0;
-        padding: 0;
-    }
-
-    #themes-selector figcaption {
-        font-size: var(--menu-font-size);
-        line-height: var(--menu-font-size);
-        color: var(--f-low);
-        text-transform: uppercase;
-        writing-mode: vertical-rl;
-        transform: rotate(180deg);
-    }
-
-    #themes-selector ul {
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
-    }
-
-    #themes-selector li {
-        height: var(--theme-button-size);
-        margin-bottom: var(--menu-gap);
-        line-height: var(--theme-button-size);
-        text-align: center;
-    }
-
-    #themes-selector li:last-child {
-        margin-bottom: 0;
-    }
-
-    #themes-selector button {
-        width: var(--theme-button-size);
-        height: var(--theme-button-size);
-        padding: 0;
-        color: transparent;
-        text-indent: -100vh;
-        border: 1px solid var(--f-low);
-        background-color: transparent;
-        transition: color 0.3s;
-    }
-
-    #themes-selector button.active {
-        border-color: var(--f-high);
-        background-color: var(--f-high);
-    }
-
-    #themes-selector button:hover {
-        border-color: var(--f-high);
-    }
-
-    #main-nav {
-        display: flex;
-        flex-direction: row-reverse;
-        gap: var(--menu-gap);
-        margin: 0;
-        padding: 0;
-        writing-mode: vertical-rl;
-        transform: rotate(180deg);
-        /* border-right: 1px solid var(--f-low); */
-    }
-
-    #main-nav a {
-        font-size: var(--menu-font-size);
-        line-height: var(--menu-font-size);
-        color: var(--f-low);
-        text-decoration: none;
-        text-transform: uppercase;
-        border-radius: var(--border-radius-small);
-        transition: color 0.3s;
-    }
-
-    #main-nav a.active {
-        color: transparent;
-        background-color: var(--f-high);
-    }
-
-    #main-nav a:not(.active):hover {
-        color: var(--f-high);
     }
 }
