@@ -28,7 +28,7 @@ const { title } = Astro.props
         display: flex;
         flex-direction: row;
         align-items: center;
-        color: var(--f-high);
+        border-top: 2px solid var(--f-high);
         border-bottom: 2px solid var(--f-high);
         overflow: hidden;
     }
@@ -45,6 +45,7 @@ const { title } = Astro.props
         flex-grow: 1;
         margin: 0;
         padding: 0;
+        color: var(--f-high);
         font-size: .8rem;
         line-height: 40px;
         text-align: center;
@@ -54,8 +55,8 @@ const { title } = Astro.props
     #page-title::before {
         content: '◉';
         margin-right: var(--menu-gap);
-        font-size: .8rem;
         color: var(--f-med);
+        font-size: .8rem;
     }
 
     #portfolio-description {
@@ -65,6 +66,7 @@ const { title } = Astro.props
         display: flex;
         flex-direction: column;
         justify-content: center;
+        color: var(--f-high);
         font-size: .8rem;
         border-right: 2px solid var(--f-high);
     }
@@ -73,10 +75,8 @@ const { title } = Astro.props
         height: 40px;
         margin: 0 0 0 -3px;
         padding: 0;
-        line-height: 45px;
-        font-size: 60px;
-        font-family: monospace;
-        font-weight: bold;
-        text-transform: uppercase;
+        color: var(--f-high);
+        font-size: 45px;
+        font-family: planecrash;
     }
 </style>

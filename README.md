@@ -39,8 +39,14 @@ npm run build
 npm run astro [command]
 ```
 
-## Crédits images
+## Crédits
 
-### accueil
+### polices d'écriture
+
+[Plane Crash](https://www.dafont.com/fr/plane-crash.font) par [The Wondermaker](https://www.dafont.com/fr/the-wondermaker.d1489) on [dafont.com](https://dafont.com)
+
+### images
+
+#### page d'accueil
 
 [room.2](https://www.artstation.com/artwork/Ead5J8) par [Krzysztof Maziarz](https://www.artstation.com/krzymsky)

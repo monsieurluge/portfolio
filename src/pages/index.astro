@@ -50,44 +50,48 @@ import BaseLayout from '../layouts/BaseLayout.astro'
         margin: var(--content-spacing) 0;
         padding: 0 0 0 2px;
         color: var(--f-high);
-        border-left: 6px solid var(--f-high);
+        /* border-left: 6px solid var(--f-high); */
+        /* border: 2px solid var(--f-high); */
         transition: border-left var(--transition-duration);
     }
 
     header:hover {
-        border-left: 6px solid var(--f-med);
+        /* border-left: 6px solid var(--f-med); */
     }
 
     header p {
         margin: 0;
-        padding: 0;
+        padding: 0 1rem;
         background-color: var(--b-low);
-        transition: background-color var(--transition-duration);
+        transition: padding var(--transition-duration);
     }
 
     header p:hover {
-        background-color: var(--b-med);
+        padding-left: 1.4rem;
     }
 
     #fullname {
         margin-bottom: 2px;
-        padding: 16px 1rem;
-        font-family: monospace;
-        font-weight: normal;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        font-family: anonymous, monospace;
         font-size: 2rem;
+        font-weight: normal;
     }
 
     #alias {
         margin-bottom: 2px;
-        padding: 0 1rem;
-        font-family: monospace;
+        padding-top: 0;
+        padding-bottom: 0;
+        font-family: anonymous, monospace;
         font-size: .8rem;
         line-height: 1.6rem;
     }
 
     #job-title {
-        padding: 16px 1rem;
-        font-family: monospace;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        font-family: anonymous, monospace;
         font-size: 1rem;
     }
 

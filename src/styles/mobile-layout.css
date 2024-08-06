@@ -1,4 +1,4 @@
-@media (max-width: 760px) {
+@media (max-width: 640px) {
     :root {
         /* overrides */
         --box-spacing: 1.4rem 2rem;
@@ -6,7 +6,6 @@
         --content-width: 100%;
         --menu-font-size: 20px;
         --menu-gap: 14px;
-        --nav-font-size: 2rem;
         --theme-button-size: 16px;
         /* mobile layout only */
         --menu-button-icon-size: 3rem;

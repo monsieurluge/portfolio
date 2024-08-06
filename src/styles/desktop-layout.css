@@ -1,9 +1,9 @@
-@media (min-width: 760px) {
+@media (min-width: 640px) {
     main {
         position: relative;
         width: var(--content-width);
         min-height: 100dvh;
-        margin: 0 0 0 10%;
+        margin: 0 auto;
         padding: 0 0 8rem;
     }
 

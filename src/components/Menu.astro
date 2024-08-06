@@ -76,7 +76,6 @@ const activeIfAt = (name: String) => currentPathRoot === name ? 'active' : ''
         display: flex;
         flex-direction: row;
         gap: 2px;
-        color: var(--f-high);
         border-bottom: 2px solid var(--f-high);
     }
 
@@ -91,9 +90,10 @@ const activeIfAt = (name: String) => currentPathRoot === name ? 'active' : ''
     }
 
     #themes-selector figcaption {
-        font-family: monospace;
-        text-transform: uppercase;
+        color: var(--f-high);
+        font-family: var(--menu-font);
         font-size: .8rem;
+        text-transform: uppercase;
     }
 
     #themes-selector ul {
@@ -155,13 +155,17 @@ const activeIfAt = (name: String) => currentPathRoot === name ? 'active' : ''
         position: relative;
         margin: 4px;
         padding: 0 4px;
-        white-space: nowrap;
+        color: var(--f-high);
+        font-family: var(--menu-font);
         font-size: .8rem;
         text-decoration: none;
         text-transform: uppercase;
+        white-space: nowrap;
         border: unset;
         border-radius: var(--border-radius-small);
-        transition: color 0.3s, background-color 0.3s;
+        transition:
+            color 0.3s,
+            background-color 0.3s;
     }
 
     #main-nav a.active {
@@ -176,9 +180,9 @@ const activeIfAt = (name: String) => currentPathRoot === name ? 'active' : ''
         left: 0;
         width: 100%;
         height: 100%;
+        color: var(--background);
         font-size: 1em;
         line-height: 1em;
-        color: var(--background);
         text-align: center;
     }
 

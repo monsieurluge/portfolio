@@ -5,7 +5,7 @@ const { cover, coverAlt, title, tags, url } = Astro.props
 ---
 
 <div class="article-card">
-    <p class="article-title">{title}</p>
+    <h2>{title}</h2>
     <a href={url} class="cover-link">
         <Image class="cover" src={cover} alt={coverAlt} />
     </a>
@@ -24,43 +24,11 @@ const { cover, coverAlt, title, tags, url } = Astro.props
         justify-content: center;
     }
 
-    .article-title {
-        position: relative;
-        margin: 0 0 2px;
-        padding: 0 1em 0 0;
-        font-size: .8rem;
-        line-height: var(--list-line-height);
-        font-family: monospace;
-        font-weight: normal;
-        text-align: right;
-        text-transform: uppercase;
-        color: var(--f-high);
-        background-color: var(--f-high);
-        border-right: 8px solid var(--b-high);
-        transition: border var(--transition-duration);
-
-        --dot-bg: var(--b-low);
-        --dot-color: var(--f-low);
-        --dot-size: 1px;
-        --dot-space: 3px;
-        background:
-      		linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
-      		linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
-      		var(--dot-color);
-    }
-
-    .article-title::before {
-        content: "↙";
-        margin-right: 4px;
-        color: var(--f-low);
-        transition: color var(--transition-duration);
-    }
-
-    .article-card:hover .article-title {
+    .article-card:hover h2 {
         border-color: var(--f-med);
     }
 
-    .article-card:hover .article-title::before {
+    .article-card:hover h2::before {
         color: var(--f-med);
     }
 
@@ -93,7 +61,7 @@ const { cover, coverAlt, title, tags, url } = Astro.props
         justify-content: left;
         margin: 0;
         padding: 0;
-        font-family: monospace;
+        font-family: anonymous, monospace;
         font-size: .8rem;
         color: var(--f-high);
         list-style-type: none;
