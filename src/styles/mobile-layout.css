@@ -4,8 +4,13 @@
         --box-spacing: 1.4rem 2rem;
         --content-spacing: 2rem;
         --content-width: 100%;
+        --header-size: 30px;
         --menu-font-size: 20px;
         --menu-gap: 14px;
+        --nav-font-size: 2rem;
+        --mobile-extra-spacing: 16px;
+        --mobile-galery-extra-spacing: 4px;
+        --portfolio-title-font-size: 30px;
         --theme-button-size: 16px;
         /* mobile layout only */
         --menu-button-icon-size: 3rem;
@@ -15,38 +20,51 @@
         --nav-padding: 1rem;
     }
 
+    html {
+        font-size: 14px;
+    }
+
     main {
         position: relative;
         width: 100%;
-        padding: var(--content-spacing);
+        padding: 0;
         margin: 0;
     }
 
-    #main-menu {
+    #menu {
         position: fixed;
         z-index: 2;
         right: var(--menu-padding);
         bottom: var(--menu-padding);
-        width: var(--menu-button-size);
-        height: var(--menu-button-size);
-        margin: 0;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        width: var(--menu-button-size);
+        height: var(--menu-button-size);
+        margin: 0;
         padding: 0;
         font-family: var(--menu-font);
-        background-color: var(--f-high);
+        border: none;
         border-radius: 2rem;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
         overflow: hidden;
         transition:
-            width 0.3s,
-            height 0.3s,
-            border-radius 0.3s;
+            width var(--transition-duration),
+            height var(--transition-duration),
+            border-radius var(--transition-duration);
+
+        --dot-bg: var(--background);
+        --dot-color: var(--f-low);
+        --dot-size: 1px;
+        --dot-space: 3px;
+        background:
+            linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+            linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+            var(--dot-color);
     }
 
-    #main-menu.opened {
+    #menu.opened {
         width: calc(100vw - 40px);
         height: calc(100vh - 40px);
         border-radius: var(--border-radius-large);
@@ -57,47 +75,15 @@
         bottom: var(--menu-padding);
         left: var(--menu-padding);
         display: none;
-        flex-direction: row-reverse;
         align-items: center;
+        flex-direction: row-reverse;
         gap: var(--menu-gap);
         margin: 0;
+        border: none !important;
     }
 
-    #main-menu.opened #themes-selector {
+    #menu.opened #themes-selector {
         display: flex;
-    }
-
-    #themes-selector figcaption {
-        font-size: var(--menu-font-size);
-        line-height: var(--menu-font-size);
-        color: var(--b-high);
-        text-transform: uppercase;
-    }
-
-    #themes-selector ul {
-        display: flex;
-        flex-direction: row-reverse;
-        align-items: center;
-        justify-content: center;
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        gap: var(--menu-gap);
-    }
-
-    #themes-selector button {
-        width: var(--theme-button-size);
-        height: var(--theme-button-size);
-        padding: 0;
-        color: transparent;
-        text-indent: -100vh;
-        border: 1px solid var(--b-high);
-        background-color: transparent;
-        transition: color 0.3s;
-    }
-
-    #themes-selector button.active {
-        background-color: var(--b-high);
     }
 
     #main-nav {
@@ -117,16 +103,53 @@
         text-transform: uppercase;
         text-overflow: ellipsis;
         white-space: nowrap;
+        border: none;
         overflow: hidden;
-        transition: color 0.3s;
+        transition: color var(--transition-duration);
     }
 
-    #main-menu.opened nav a {
-        color: var(--background);
+    #menu.opened nav a {
+        color: var(--f-high);
     }
 
-    #main-menu.opened nav a.active {
-        color: var(--b-high);
+    #menu.opened nav a.active {
+        color: var(--f-med);
+    }
+
+    #themes-selector figcaption {
+        font-size: var(--menu-font-size);
+        line-height: var(--menu-font-size);
+        color: var(--f-high);
+        text-transform: uppercase;
+    }
+
+    #themes-selector ul {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        gap: var(--menu-gap);
+    }
+
+    #themes-selector button {
+        width: var(--theme-button-size);
+        height: var(--theme-button-size);
+        padding: 0;
+        color: transparent;
+        text-indent: -100vh;
+        border: 1px solid var(--f-high);
+        background-color: transparent;
+        transition:
+            background-color var(--transition-duration),
+            border-color var(--transition-duration);
+    }
+
+    #themes-selector button.active {
+        background-color: var(--f-med);
+        border-color: var(--f-med);
     }
 
     .menu-button {
@@ -145,7 +168,7 @@
     .menu-button svg {
         width: var(--menu-button-icon-size);
         height: var(--menu-button-icon-size);
-        color: var(--background);
+        color: var(--f-high);
     }
 
     .hidden {

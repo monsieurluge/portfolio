@@ -28,12 +28,13 @@ img {
 }
 
 img:first-child {
-    margin: var(--box-spacing) 0;
+    margin: var(--content-spacing) 0;
     width: var(--content-width);
 }
 
 p {
     margin: 2rem 0;
+    padding: 0 var(--mobile-extra-spacing);
 }
 
 p:nth-child(2) {
@@ -42,7 +43,7 @@ p:nth-child(2) {
 }
 
 ul {
-    padding: 0 1rem;
+    padding: 0 calc(1rem + var(--mobile-extra-spacing));
 }
 
 ul li::marker {
@@ -66,7 +67,7 @@ blockquote p:last-child {
 
 footer {
     margin-top: calc(var(--content-spacing) * 2);
-    padding: 4px 0;
+    padding: 4px var(--mobile-extra-spacing);
     font-family: anonymous, monospace;
     font-size: .8rem;
     line-height: .8rem;

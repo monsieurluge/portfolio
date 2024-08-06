@@ -121,29 +121,31 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 
     .about-me .content {
         margin: 0;
-        padding: 0;
+        padding: 0 var(--mobile-extra-spacing);
     }
 
     .about-me ul {
         margin: 0;
         padding: 0;
+        list-style-type: none;
         cursor: default;
     }
 
     .about-me ul li {
+        padding: 0 var(--mobile-extra-spacing) 0 8px;
         color: var(--f-high);
         line-height: var(--list-line-height);
         border-bottom: 2px solid var(--f-low);
         transition: color var(--transition-duration);
     }
 
-    .about-me ul li::marker {
+    .about-me ul li::before {
         content: "+ ";
         color: var(--f-low);
         transition: color var(--transition-duration);
     }
 
-    .about-me ul li:hover::marker {
+    .about-me ul li:hover::before {
         color: var(--f-med);
     }
 
