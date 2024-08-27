@@ -26,11 +26,12 @@
     --box-spacing: 1.6rem;
     --content-spacing: 3rem;
     --content-width: 600px;
-    --header-size: 40px;
     --list-line-height: 1.6rem;
     --menu-gap: 8px;
     --mobile-extra-spacing: 0;
     --mobile-galery-extra-spacing: 0;
+    --row-height: 24px;
+    --row-height-large: 40px;
     --theme-button-size: 12px;
     --transition-duration: .3s;
 }
@@ -140,6 +141,7 @@
 
 html {
     font-family: ubuntu, sans-serif;
+    font-weight: lighter;
     color: var(--f-high);
     background-color: var(--background);
 }
@@ -172,6 +174,7 @@ h1 {
     display: flex;
     flex-direction: row;
     align-items: center;
+    height: var(--row-height-large);
     margin: var(--content-spacing) 0 var(--box-spacing) 0;
     padding: 0 2em 0 0;
     font-family: var(--heading-font);
@@ -186,7 +189,7 @@ h1 {
 h1::before {
     content: "";
     flex: 1;
-    height: 2.4rem;
+    height: calc(var(--row-height-large) - 8px);
     margin: 2px;
     margin-right: 2em;
     color: var(--f-low);
@@ -203,12 +206,13 @@ h1::before {
 
 h2 {
     position: relative;
+    height: var(--row-height);
     margin: 0 0 2px;
     padding: 0 8px 0 0;
     font-size: var(--title-font-size);
     font-family: var(--title-font);
     font-weight: normal;
-    line-height: var(--list-line-height);
+    line-height: var(--row-height);
     text-align: right;
     text-transform: uppercase;
     color: var(--f-high);

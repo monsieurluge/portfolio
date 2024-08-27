@@ -8,6 +8,7 @@
     }
 
     menu {
+        height: var(--row-height);
         margin: 0;
         padding: 0;
         display: flex;

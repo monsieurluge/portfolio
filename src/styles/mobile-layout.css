@@ -4,13 +4,14 @@
         --box-spacing: 1.4rem 2rem;
         --content-spacing: 2rem;
         --content-width: 100%;
-        --header-size: 30px;
         --menu-font-size: 20px;
         --menu-gap: 14px;
         --nav-font-size: 2rem;
         --mobile-extra-spacing: 16px;
         --mobile-galery-extra-spacing: 4px;
         --portfolio-title-font-size: 30px;
+        --row-height: 30px;
+        --row-height-large: 30px;
         --theme-button-size: 16px;
         /* mobile layout only */
         --menu-button-icon-size: 3rem;
