@@ -1,107 +1,175 @@
 ---
 type Props = {
-    defaultTheme?: 'auto' | 'sandstorm' | 'tape' | undefined,
+    defaultTheme?: 'appolo' | 'marble' | 'sandstorm' | 'tape' | undefined,
 }
 
-const { defaultTheme = 'auto' } = Astro.props
+const { defaultTheme } = Astro.props
 ---
 
 <script is:inline data-default-theme={defaultTheme}>
-    const fakeLocalStorage = { getItem: () => null, setItem: () => {} }
-    const toColorVariable = key => `--${key.replace('_', '-')}`
+    const baseThemes = [
+        {
+            colors: {
+                b_high: '#736c5e',
+                b_inv: '#fc9e21',
+                b_low: '#44413c',
+                b_med: '#57534a',
+                background: '#3b3a36',
+                f_high: '#e5ccaf',
+                f_inv: '#3b3a36',
+                f_low: '#685e4f',
+                f_med: '#fc9e21',
+            },
+            default: 'dark',
+            name: 'sandstorm',
+        },
+        {
+            colors: {
+                b_high: '#43423e',
+                b_inv: '#eb3f48',
+                b_low: '#e5e3dc',
+                b_med: '#c2c1bb',
+                background: '#dad7cd',
+                f_high: '#696861',
+                f_inv: '#43423e',
+                f_low: '#b3b2ac',
+                f_med: '#ffffff',
+            },
+            default: 'light',
+            name: 'tape',
+        },
+        {
+            colors: {
+                b_high: '#000000',
+                b_inv: '#e47464',
+                b_low: '#322e33',
+                b_med: '#201e21',
+                background: '#29272b',
+                f_high: '#ffffff',
+                f_inv: '#000000',
+                f_low: '#66606b',
+                f_med: '#e47464',
+            },
+            name: 'appolo',
+        },
+        {
+            colors: {
+                b_high: '#676164',
+                b_inv: '#676164',
+                b_low: '#CFD2CD',
+                b_med: '#A6A2A2',
+                background: '#FBFBF2',
+                f_high: '#3a3738',
+                f_inv: '#A6A2A2',
+                f_low: '#bdb8b8',
+                f_med: '#847577',
+            },
+            name: 'marble',
+        },
+    ]
 
-    const themes = new Map()
-    themes.set('sandstorm', {
-        "background": "#3b3a36",
-        "f_high": "#e5ccaf",
-        "f_med": "#fc9e21",
-        "f_low": "#685e4f",
-        "f_inv": "#3b3a36",
-        "b_high": "#736c5e",
-        "b_med": "#57534a",
-        "b_low": "#44413c",
-        "b_inv": "#fc9e21",
-    })
-    themes.set('tape', {
-        "background": "#dad7cd",
-        "f_high": "#696861",
-        "f_med": "#ffffff",
-        "f_low": "#b3b2ac",
-        "f_inv": "#43423e",
-        "b_high": "#43423e",
-        "b_med": "#c2c1bb",
-        "b_low": "#e5e3dc",
-        "b_inv": "#eb3f48",
-    })
-    themes.set('appolo', {
-        "background": "#29272b",
-        "f_high": "#ffffff",
-        "f_med": "#e47464",
-        "f_low": "#66606b",
-        "f_inv": "#000000",
-        "b_high": "#000000",
-        "b_med": "#201e21",
-        "b_low": "#322e33",
-        "b_inv": "#e47464",
-    })
-    themes.set('marble', {
-        "background": "#FBFBF2",
-        "f_high": "#3a3738",
-        "f_med": "#847577",
-        "f_low": "#bdb8b8",
-        "f_inv": "#A6A2A2",
-        "b_high": "#676164",
-        "b_med": "#A6A2A2",
-        "b_low": "#CFD2CD",
-        "b_inv": "#676164",
-    })
+    window.theme ??= (({ defaultThemeName, themes }) => {
+        const fakeLocalStorage = { getItem: () => null, setItem: () => {} }
+        const isHexColor = value => /^#([0-9A-F]{3}){1,2}$/i.test(value)
+        const isValidColorTuple = ([name, hex]) => ['b_high', 'b_inv', 'b_low', 'b_med', 'background', 'f_high', 'f_inv', 'f_low', 'f_med'].includes(name) && isHexColor(hex)
+        const toColorVariable = key => `--${key.replace('_', '-')}`
 
-    window.theme ??= (() => {
-        const defaultTheme = document.currentScript.getAttribute('data-default-theme')
         const mediaMatcher = window.matchMedia('(prefers-color-scheme: light)')
-        const storageKey = 'theme'
-        const store = !localStorage ? fakeLocalStorage : localStorage
+        const storage = !localStorage ? fakeLocalStorage : localStorage
+        const storageKeyColors = 'theme colors'
+        const storageKeyName = 'theme name'
 
         mediaMatcher.addEventListener('change', event => {
-            const systemTheme = event.matches ? 'tape' : 'sandstorm'
-            applyTheme(window.theme.setTheme(systemTheme))
+            const systemTheme = event.matches ? 'light' : 'dark'
+            const found = themes.find(theme => theme.default === systemTheme)
+            if (found) select(found.name)
         })
 
-        function applyTheme(theme) {
-            if (!themes.has(theme)) return
-            const colors = themes.get(theme)
-            Object.entries(colors).forEach(([key, value]) =>
-                document.documentElement.style.setProperty(toColorVariable(key), value)
-            )
-            document.dispatchEvent(
-                new CustomEvent('theme-changed', {
-                    detail: { theme },
-                })
-            )
+        function apply({ colors, name }) {
+            const colorsTuples = Object.entries(colors)
+            if (!colorsTuples.every(isValidColorTuple)) return
+            colorsTuples.forEach(([name, hex]) => document.documentElement.style.setProperty(toColorVariable(name), hex))
+            storage.setItem(storageKeyColors, JSON.stringify(colors))
+            storage.setItem(storageKeyName, name)
+            document.dispatchEvent(new CustomEvent('theme-changed', { detail: { name } }))
         }
 
-        function getTheme() {
-            return store.getItem(storageKey) || defaultTheme
+        function current() {
+            return storage.getItem(storageKeyName) || defaultThemeName
         }
 
-        function setTheme(theme = defaultTheme) {
-            if (!themes.has(theme)) return
-            store.setItem(storageKey, theme)
-            applyTheme(theme)
+        function load() {
+            const name = storage.getItem(storageKeyName)
+            if (name === 'custom') {
+                const colors = JSON.parse(storage.getItem(storageKeyColors))
+                apply({ colors, name: 'custom' })
+            } else {
+                select(name)
+            }
+        }
+
+        function select(name) {
+            const found = themes.find(theme => theme.name === name)
+            if (found) apply({ colors: found.colors, name })
         }
 
         return {
-            getTheme,
-            setTheme,
+            apply,
+            current,
+            load,
+            select,
         }
-    })()
+    })({
+        defaultThemeName: document.currentScript.getAttribute('data-default-theme'),
+        themes: baseThemes,
+    })
 
-    window.theme.setTheme(window.theme.getTheme())
+    function extractTheme(content) {
+        const svg = new DOMParser().parseFromString(content, 'text/xml')
+        return {
+            b_high: svg.getElementById('b_high').getAttribute('fill'),
+            b_inv: svg.getElementById('b_inv').getAttribute('fill'),
+            b_low: svg.getElementById('b_low').getAttribute('fill'),
+            b_med: svg.getElementById('b_med').getAttribute('fill'),
+            background: svg.getElementById('background').getAttribute('fill'),
+            f_high: svg.getElementById('f_high').getAttribute('fill'),
+            f_inv: svg.getElementById('f_inv').getAttribute('fill'),
+            f_low: svg.getElementById('f_low').getAttribute('fill'),
+            f_med: svg.getElementById('f_med').getAttribute('fill'),
+        }
+    }
+
+    function onDragOver(event) {
+        event.stopPropagation()
+        event.preventDefault()
+        event.dataTransfer.dropEffect = 'copy'
+    }
+
+    function onDrop(event) {
+        event.stopPropagation()
+        event.preventDefault()
+        const file = event.dataTransfer.files[0]
+        if (file.name.indexOf('.svg') === -1) return
+        const reader = new FileReader()
+        reader.onload = event => {
+            try {
+                new DOMParser().parseFromString(event.target.result, 'text/xml')
+                const colors = extractTheme(event.target.result)
+                window.theme.apply({ colors, name: 'custom' })
+            } catch (error) {
+                console.warn('invalid SVG theme: ', error)
+            }
+        }
+        reader.readAsText(file)
+    }
+
+    window.addEventListener('dragover', onDragOver)
+    window.addEventListener('drop', onDrop)
 </script>
 
 <script>
-    document.addEventListener('astro:after-swap', () =>
-        // @ts-ignore-next-line
-        theme.setTheme(theme.getTheme())
-    )
+    // @ts-ignore-next-line
+    document.addEventListener('astro:after-swap', theme.load)
+    // @ts-ignore-next-line
+    document.addEventListener('DOMContentLoaded', theme.load)
 </script>

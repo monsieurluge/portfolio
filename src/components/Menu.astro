@@ -37,6 +37,10 @@ const activeIfAt = (name: String) => currentPathRoot === name ? 'active' : ''
     const buttonClose = document.getElementById('close-menu-button')
     const buttonOpen = document.getElementById('open-menu-button')
     const menu = document.getElementById('menu')
+    const toggleThemeButtons = currentThemeName =>
+        document.querySelectorAll('#themes-selector button').forEach(button =>
+            button.classList.toggle('active', button.dataset.theme === currentThemeName)
+        )
 
     function closeMenu() {
         menu.classList.remove('opened')
@@ -52,19 +56,10 @@ const activeIfAt = (name: String) => currentPathRoot === name ? 'active' : ''
 
     document.getElementById('themes-selector').addEventListener('click', ({ target }) => {
         if (target.tagName !== 'BUTTON') return
-        theme.setTheme(target.dataset.theme)
+        theme.select(target.dataset.theme)
     })
 
-    document.addEventListener('theme-changed', ({ detail }) => {
-        document.querySelectorAll('#themes-selector button').forEach(button => {
-            button.classList.toggle('active', button.dataset.theme === detail.theme)
-        })
-    })
+    document.addEventListener('theme-changed', ({ detail }) => toggleThemeButtons(detail.name))
 
-    document.addEventListener('DOMContentLoaded', () => {
-        const currentTheme = theme.getTheme()
-        document.querySelectorAll('#themes-selector button').forEach(button => {
-            button.classList.toggle('active', button.dataset.theme === currentTheme)
-        })
-    })
+    document.addEventListener('DOMContentLoaded', toggleThemeButtons(theme.current()))
 </script>
