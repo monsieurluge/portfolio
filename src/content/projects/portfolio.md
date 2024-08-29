@@ -2,7 +2,7 @@
 author: 'monsieurluge'
 cover: './portfolio.jpg'
 coverAlt: "capture d'écran de la page d'accueil du portfolio"
-lastUpdate: '2024-08-27'
+lastUpdate: '2024-08-29'
 layout: '../../layouts/ArticleLayout.astro'
 tags: ['astro', 'javascript', 'github actions']
 title: 'Portfolio'
@@ -23,6 +23,12 @@ Après de nombreux tests infructueux, de plateformes qui ne m'inspirent pas gran
 Astro permet de produire un site statique optimisé ne contenant que le strict nécessaire ce qui correspond parfaitement aux valeurs que je défends, sans sacrifier la possibilité d'avoir du contenu dynamique. La communauté est très active ce qui est un plus non négligeable.
 
 L'hébergement est chez <a href="https://www.hostinger.fr/" target="_blank">Hostinger</a>, et la gestion du formulaire de contact est assurée par <a href="https://web3forms.com/" target="_blank">Web3Forms</a>.
+
+## Minimalisme
+
+Friand de minimalisme j'ai volontairement choisi cette voie pour la création de ce portfolio. Framework léger, pas de librairie externe, thème sobre mais modulable, template de page le plus simple possible utilisant au maximum les balises de base, tout concourt à coller à ma façon de voir les choses sans me restreindre dans mes choix.
+
+Les thèmes disponibles utilisent tous la même base et peuvent être remplacés par un simple glisser-déposer de fichier sur la page. Plus d'informations [ici](/themes).
 
 ## Joindre l'utile à l'agréable
 

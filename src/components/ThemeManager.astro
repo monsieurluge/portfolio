@@ -1,6 +1,6 @@
 ---
 type Props = {
-    defaultTheme?: 'appolo' | 'marble' | 'sandstorm' | 'tape' | undefined,
+    defaultTheme?: 'apollo' | 'marble' | 'sandstorm' | 'tape' | undefined,
 }
 
 const { defaultTheme } = Astro.props
@@ -50,7 +50,7 @@ const { defaultTheme } = Astro.props
                 f_low: '#66606b',
                 f_med: '#e47464',
             },
-            name: 'appolo',
+            name: 'apollo',
         },
         {
             colors: {
@@ -149,6 +149,7 @@ const { defaultTheme } = Astro.props
         event.stopPropagation()
         event.preventDefault()
         const file = event.dataTransfer.files[0]
+        console.log(file)
         if (file.name.indexOf('.svg') === -1) return
         const reader = new FileReader()
         reader.onload = event => {

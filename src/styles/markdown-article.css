@@ -27,11 +27,6 @@ img {
     height: auto;
 }
 
-img:first-child {
-    margin: var(--content-spacing) 0;
-    width: var(--content-width);
-}
-
 p {
     margin: 2rem 0;
     padding: 0 var(--mobile-extra-spacing);
@@ -40,6 +35,11 @@ p {
 p:nth-child(2) {
     margin: 0;
     padding: 0;
+}
+
+p:nth-child(2) img {
+    margin: var(--content-spacing) 0;
+    width: var(--content-width);
 }
 
 ul {

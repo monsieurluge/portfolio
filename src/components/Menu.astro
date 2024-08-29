@@ -6,11 +6,11 @@ const activeIfAt = (name: String) => currentPathRoot === name ? 'active' : ''
 
 <menu id="menu">
     <figure id="themes-selector">
-        <figcaption>thèmes</figcaption>
+        <figcaption><a class={activeIfAt('themes')} href="/themes">thèmes</a></figcaption>
         <ul >
             <li><button data-theme="sandstorm">sandstorm</button></li>
             <li><button data-theme="tape">tape</button></li>
-            <li><button data-theme="appolo">appolo</button></li>
+            <li><button data-theme="apollo">apollo</button></li>
             <li><button data-theme="marble">marble</button></li>
         </ul>
     </figure>

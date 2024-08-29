@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="96px"
+   height="64px"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="tape.svg"
+   inkscape:export-filename="sandstorm.png"
+   inkscape:export-xdpi="800"
+   inkscape:export-ydpi="800"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="3.6875"
+     inkscape:cx="48"
+     inkscape:cy="31.864407"
+     inkscape:window-width="1656"
+     inkscape:window-height="998"
+     inkscape:window-x="12"
+     inkscape:window-y="12"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg1" />
+  <rect
+     width="96"
+     height="64"
+     id="background"
+     fill="#29272b"
+     style="fill:#dad7cd;fill-opacity:1" />
+  <!-- Foreground -->
+  <circle
+     cx="24"
+     cy="24"
+     r="8"
+     id="f_high"
+     fill="#ffffff"
+     style="fill:#696861;fill-opacity:1" />
+  <circle
+     cx="40"
+     cy="24"
+     r="8"
+     id="f_med"
+     fill="#e47464"
+     style="fill:#ffffff;fill-opacity:1" />
+  <circle
+     cx="56"
+     cy="24"
+     r="8"
+     id="f_low"
+     fill="#66606b"
+     style="fill:#b3b2ac;fill-opacity:1" />
+  <circle
+     cx="72"
+     cy="24"
+     r="8"
+     id="f_inv"
+     fill="#000000"
+     style="fill:#43423e;fill-opacity:1" />
+  <!-- Background -->
+  <circle
+     cx="24"
+     cy="40"
+     r="8"
+     id="b_high"
+     fill="#000000"
+     style="fill:#43423e;fill-opacity:1" />
+  <circle
+     cx="40"
+     cy="40"
+     r="8"
+     id="b_med"
+     fill="#201e21"
+     style="fill:#c2c1bb;fill-opacity:1" />
+  <circle
+     cx="56"
+     cy="40"
+     r="8"
+     id="b_low"
+     fill="#322e33"
+     style="fill:#e5e3dc;fill-opacity:1" />
+  <circle
+     cx="72"
+     cy="40"
+     r="8"
+     id="b_inv"
+     fill="#e47464"
+     style="fill:#eb3f48;fill-opacity:1" />
+</svg>
