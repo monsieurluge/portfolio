@@ -149,7 +149,6 @@ const { defaultTheme } = Astro.props
         event.stopPropagation()
         event.preventDefault()
         const file = event.dataTransfer.files[0]
-        console.log(file)
         if (file.name.indexOf('.svg') === -1) return
         const reader = new FileReader()
         reader.onload = event => {
