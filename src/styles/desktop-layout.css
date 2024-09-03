@@ -13,7 +13,6 @@
         padding: 0;
         display: flex;
         flex-direction: row;
-        gap: 2px;
         border-bottom: 2px solid var(--f-high);
     }
 
@@ -79,14 +78,16 @@
         align-items: center;
         justify-content: space-between;
 
-        --dot-bg: var(--background);
-        --dot-color: var(--f-low);
-        --dot-size: 1px;
-        --dot-space: 3px;
-        background:
-    		linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
-    		linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
-    		var(--dot-color);
+        --line-bg: var(--background);
+        --line-color: var(--b-low);
+        --line-size: 2px;
+        --line-space: 2px;
+        background-color: var(--line-bg);
+        background-image: repeating-linear-gradient(
+            -45deg,
+            var(--line-bg) 0 var(--line-space),
+            var(--line-color) var(--line-space) calc(var(--line-space) + var(--line-size))
+        );
     }
 
     #main-nav a,

@@ -12,6 +12,7 @@ const { cover, coverAlt, title, tags, url } = Astro.props
     <div class="description">
         <ul class="tags">
             {tags.map((tag: String) => <li>{tag}</li>)}
+            <li class="empty-tag">&larr;</li>
         </ul>
     </div>
 </div>
@@ -24,19 +25,18 @@ const { cover, coverAlt, title, tags, url } = Astro.props
         justify-content: center;
     }
 
-    .article-card:hover h2 {
-        border-color: var(--f-med);
+    .article-card:hover h2::before {
+        --dot-color: var(--f-med);
     }
 
-    .article-card:hover h2::before {
-        color: var(--f-med);
+    .article-card:hover h2::after {
+        --dot-color: var(--f-med);
     }
 
     .cover-link {
         aspect-ratio: 2 / 1;
         width: 100%;
         height: auto;
-        margin-bottom: 2px;
         border: unset;
         overflow: hidden;
     }
@@ -55,18 +55,21 @@ const { cover, coverAlt, title, tags, url } = Astro.props
     }
 
     .tags {
+        position: absolute;
+        left: 2px;
+        bottom: 2px;
+        width: calc(100% - 4px);
+        margin: 0;
+        padding: 0;
         display: flex;
         flex-direction: row;
         flex-wrap: no-wrap;
+        gap: 2px;
         justify-content: left;
-        margin: 0;
-        padding: 0;
         font-family: anonymous, monospace;
         font-size: .8rem;
-        color: var(--f-high);
         list-style-type: none;
         overflow: hidden;
-        background-color: var(--b-low);
     }
 
     li {
@@ -74,15 +77,21 @@ const { cover, coverAlt, title, tags, url } = Astro.props
         font-size: .8rem;
         text-align: center;
         white-space: nowrap;
-        color: var(--f-low);
-        border-right: 2px solid var(--background);
+        color: transparent;
+        background-color: transparent;
+        border-radius: 2px;
         transition:
             background-color var(--transition-duration),
             color var(--transition-duration);
     }
 
+    li.empty-tag {
+        flex: 1;
+        text-align: left;
+    }
+
     .article-card:hover li {
         color: var(--f-high);
-        background-color: var(--b-med);
+        background-color: var(--b-low);
     }
 </style>

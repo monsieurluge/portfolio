@@ -111,12 +111,12 @@ import BaseLayout from '../layouts/BaseLayout.astro'
         color: var(--f-high);
     }
 
-    .about-me:hover h2 {
-        border-color: var(--f-med);
+    .about-me:hover h2::before {
+        --dot-color: var(--f-med);
     }
 
-    .about-me:hover h2::before {
-        color: var(--f-med);
+    .about-me:hover h2::after {
+        --dot-color: var(--f-med);
     }
 
     .about-me .content {

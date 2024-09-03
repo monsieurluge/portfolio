@@ -176,27 +176,26 @@ h1 {
     align-items: center;
     height: var(--row-height-large);
     margin: var(--content-spacing) 0 var(--box-spacing) 0;
-    padding: 0 2em 0 0;
+    padding: 0;
     font-family: var(--heading-font);
     font-size: var(--heading-font-size);
     font-weight: normal;
     text-align: right;
     text-transform: uppercase;
     color: var(--f-high);
-    border: 2px solid var(--f-high);
 }
 
 h1::before {
     content: "";
     flex: 1;
     height: calc(var(--row-height-large) - 8px);
-    margin: 2px;
-    margin-right: 2em;
+    margin: 0;
+    margin-right: 1rem;
     color: var(--f-low);
 
-    --dot-bg: var(--f-high);
-    --dot-color: var(--b-high);
-    --dot-size: 1px;
+    --dot-bg: var(--background);
+    --dot-color: var(--f-high);
+    --dot-size: 2px;
     --dot-space: 3px;
     background:
 		linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
@@ -206,9 +205,12 @@ h1::before {
 
 h2 {
     position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     height: var(--row-height);
     margin: 0 0 2px;
-    padding: 0 8px 0 0;
+    padding: 0;
     font-size: var(--title-font-size);
     font-family: var(--title-font);
     font-weight: normal;
@@ -216,23 +218,39 @@ h2 {
     text-align: right;
     text-transform: uppercase;
     color: var(--f-high);
-    background-color: var(--f-high);
-    border-right: 8px solid var(--b-high);
     transition: border var(--transition-duration);
-
-    --dot-bg: var(--b-low);
-    --dot-color: var(--f-low);
-    --dot-size: 1px;
-    --dot-space: 3px;
-    background:
-  		linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
-  		linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
-  		var(--dot-color);
 }
 
 h2::before {
-    content: "↙";
-    margin-right: 4px;
+    content: "";
+    flex: 1;
+    height: 100%;
+    margin: 0;
+    margin-right: 1em;
     color: var(--f-low);
-    transition: color var(--transition-duration);
+
+    --dot-bg: var(--background);
+    --dot-color: var(--f-high);
+    --dot-size: 1px;
+    --dot-space: 3px;
+    background:
+		linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+		linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+		var(--dot-color);
+}
+
+h2::after {
+    content: "";
+    width: 8px;
+    height: 100%;
+    margin-left: 1em;
+
+    --dot-bg: var(--background);
+    --dot-color: var(--f-high);
+    --dot-size: 1px;
+    --dot-space: 3px;
+    background:
+		linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+		linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+		var(--dot-color);
 }

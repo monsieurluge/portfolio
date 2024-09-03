@@ -43,7 +43,8 @@ p:nth-child(2) img {
 }
 
 ul {
-    padding: 0 calc(1rem + var(--mobile-extra-spacing));
+    margin-left: 1.2rem;
+    padding: 0 var(--mobile-extra-spacing);
 }
 
 ul li::marker {
