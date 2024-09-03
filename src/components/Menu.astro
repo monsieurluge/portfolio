@@ -46,12 +46,20 @@ const activeIfAt = (name: String) => currentPathRoot === name ? 'active' : ''
         menu.classList.remove('opened')
         buttonClose.classList.add('hidden')
         buttonOpen.classList.remove('hidden')
+        document.querySelector('body').removeEventListener('wheel', preventScroll);
     }
 
     function openMenu() {
         menu.classList.add('opened')
         buttonOpen.classList.add('hidden')
         buttonClose.classList.remove('hidden')
+        document.querySelector('body').addEventListener('wheel', preventScroll, { passive: false })
+    }
+
+    function preventScroll(e) {
+        e.preventDefault()
+        e.stopPropagation()
+        return false
     }
 
     document.getElementById('themes-selector').addEventListener('click', ({ target }) => {
