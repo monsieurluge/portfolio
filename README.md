@@ -41,6 +41,10 @@ npm run astro [command]
 
 ## Crédits
 
+### déploiement
+
+[<img alt="Deployed with FTP Deploy Action" src="https://img.shields.io/badge/Deployed With-FTP DEPLOY ACTION-%3CCOLOR%3E?style=for-the-badge&color=0077b6">](https://github.com/SamKirkland/FTP-Deploy-Action)
+
 ### polices d'écriture
 
 [Plane Crash](https://www.dafont.com/fr/plane-crash.font) par [The Wondermaker](https://www.dafont.com/fr/the-wondermaker.d1489) on [dafont.com](https://dafont.com)
