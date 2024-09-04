@@ -13,7 +13,7 @@ title: 'Typing Test'
 
 ![capture d'écran](./typing-test.jpg)
 
-<a href="https://github.com/monsieurluge/typing-test" target="_blank">sources</a>
+<a href="https://github.com/monsieurluge/typing-test" target="_blank">sources</a> | <a href="https://typing-test.monsieurluge.dev" target="_blank">démo</a>
 
 ## Introduction
 
@@ -47,7 +47,6 @@ Il me reste quelques modifications à apporter au projet cependant je ne me suis
 
 En vrac j'ai en tête :
 
-- corriger le fonctionnement en frappe aveugle (_blind mode_)
 - proposer au moins une autre langue, le français
 - s'entraîner à taper du code + symboles plutôt que des mots du dictionnaire
 - gestion de thèmes
