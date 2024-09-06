@@ -51,67 +51,46 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 </BaseLayout>
 
 <style>
-    header {
-        margin: var(--content-spacing) 0;
-        padding: 0 0 0 2px;
-        color: var(--f-high);
-        /* border-left: 6px solid var(--f-high); */
-        /* border: 2px solid var(--f-high); */
-        transition: border-left var(--transition-duration);
+    h2 {
+        margin-bottom: 0;
     }
 
-    header:hover {
-        /* border-left: 6px solid var(--f-med); */
+    #profile {
+        margin-bottom: var(--row-height-large);
     }
 
-    header p {
+    #profile p {
         margin: 0;
-        padding: 0 1rem;
-        background-color: var(--b-low);
-        transition: padding var(--transition-duration);
+        padding: 0;
     }
 
-    header p:hover {
-        padding-left: 1.4rem;
+    #profile ul {
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
     }
 
-    #fullname {
-        margin-bottom: 2px;
-        padding-top: 16px;
-        padding-bottom: 16px;
-        font-family: anonymous, monospace;
-        font-size: 2rem;
-        font-weight: normal;
+    #profile li a {
+        border-bottom: none;
     }
 
-    #alias {
-        margin-bottom: 2px;
-        padding-top: 0;
-        padding-bottom: 0;
-        font-family: anonymous, monospace;
-        font-size: .8rem;
-        line-height: 1.6rem;
-    }
-
-    #job-title {
-        padding-top: 16px;
-        padding-bottom: 16px;
-        font-family: anonymous, monospace;
-        font-size: 1rem;
-    }
-
-    .aka {
+    #profile li:not(:last-child)::after {
+        content: "-";
+        margin: 0 0.5em;
         color: var(--f-low);
     }
 
     img {
+        display: block;
         max-width: 100%;
         box-sizing: border-box;
-        margin-bottom: var(--content-spacing);
+        margin: 0 0 var(--row-height-large);
     }
 
     .about-me {
-        margin: 0 0 1.6rem 0;
+        margin: var(--row-height) 0;
         padding: 0;
         color: var(--f-high);
     }
@@ -156,6 +135,15 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 
     .about-me ul:hover li:not(:hover) {
         color: var(--f-low);
+    }
+
+    .faded {
+        color: var(--f-low);
+        transition: color var(--transition-duration);
+    }
+
+    .faded:hover {
+        color: var(--f-high);
     }
 
     .separator {

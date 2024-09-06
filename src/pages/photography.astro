@@ -170,12 +170,9 @@ const title = 'Galerie photo'
 </script>
 
 <style>
-    .gallery-theme {
-        margin: 0 0 var(--content-spacing);
-    }
-
-    .gallery-theme:hover h2 {
-        border-color: var(--f-med);
+    .gallery-theme:hover h2::before,
+    .gallery-theme:hover h2::after {
+        --dot-color: var(--f-med);
     }
 
     .gallery-theme:hover h2::before {

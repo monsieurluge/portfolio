@@ -2,15 +2,6 @@
     line-height: 1.5rem;
 }
 
-h2 {
-    margin: 2rem 0;
-    border-color: var(--f-med);
-}
-
-h2::before {
-    color: var(--f-med);
-}
-
 h3 {
     padding-left: .5rem;
     font-size: 1.4rem;
@@ -28,7 +19,7 @@ img {
 }
 
 p {
-    margin: 2rem 0;
+    margin: var(--row-height) 0;
     padding: 0 var(--mobile-extra-spacing);
 }
 
@@ -38,7 +29,6 @@ p:nth-child(2) {
 }
 
 p:nth-child(2) img {
-    margin: var(--content-spacing) 0;
     width: var(--content-width);
 }
 

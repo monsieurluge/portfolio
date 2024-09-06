@@ -163,6 +163,7 @@ a:hover {
 a[target="_blank"]::after {
     content: " ❏";
     font-size: 0.8em;
+    opacity: 0.5;
 }
 
 ::selection {
@@ -175,7 +176,7 @@ h1 {
     flex-direction: row;
     align-items: center;
     height: var(--row-height-large);
-    margin: var(--content-spacing) 0 var(--box-spacing) 0;
+    margin: var(--row-height-large) 0;
     padding: 0;
     font-family: var(--heading-font);
     font-size: var(--heading-font-size);
@@ -209,7 +210,7 @@ h2 {
     flex-direction: row;
     align-items: center;
     height: var(--row-height);
-    margin: 0 0 2px;
+    margin: var(--row-height) 0;
     padding: 0;
     font-size: var(--title-font-size);
     font-family: var(--title-font);
@@ -218,7 +219,6 @@ h2 {
     text-align: right;
     text-transform: uppercase;
     color: var(--f-high);
-    transition: border var(--transition-duration);
 }
 
 h2::before {
@@ -228,6 +228,7 @@ h2::before {
     margin: 0;
     margin-right: 1em;
     color: var(--f-low);
+    transition: background var(--transition-duration);
 
     --dot-bg: var(--background);
     --dot-color: var(--f-high);
@@ -244,6 +245,7 @@ h2::after {
     width: 8px;
     height: 100%;
     margin-left: 1em;
+    transition: background var(--transition-duration);
 
     --dot-bg: var(--background);
     --dot-color: var(--f-high);
