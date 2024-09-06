@@ -4,11 +4,16 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 ---
 
 <BaseLayout title="portfolio de Laurent Vergé - développeur web freelance">
-    <header>
-        <p id="fullname">Laurent Vergé</p>
-        <p id="alias"><span class="aka">aka</span> @monsieurluge</p>
-        <p id="job-title">développeur web full stack senior</p>
-    </header>
+    <h1>Laurent Vergé</h1>
+    <section id="profile">
+        <p>développeur web full stack sénior</p>
+        <p class="faded">aka @monsieurluge</p>
+        <ul>
+            <li><a href="https://github.com/monsieurluge" target="_blank" class="faded">github</a></li>
+            <li><a href="www.linkedin.com/in/laurent-vergé-5ab77a293" target="_blank" class="faded">linkedin</a></li>
+            <li><a href="https://www.malt.fr/profile/laurentverge1" target="_blank" class="faded">malt</a></li>
+        </ul>
+    </section>
     <img src="/images/room2.jpg" alt="illustration représentant un bureau envahi par la végétation" />
     <section class="about-me">
         <h2>mentor</h2>
