@@ -35,14 +35,17 @@ Il y a tout ce dont on attend d'une liste de tâches :
 - mise à "terminé"
 - suppression
 
-Mais également :
+Mais également, sans ordre de priorité :
 
-- report des tâches au lendemain (ou inversement)
-- suppression automatique des tâches terminées lors du changement de jour *
-- déplacement automatique des tâches lors du changement de jour *
+- report des tâches au lendemain, ou l'art de la procrastination
+- suppression automatique des tâches terminées lors du changement de jour (*)
+- déplacement automatique des tâches lors du changement de jour (*)
 - attribution d'un _poids_ aux tâches
 - gestion automatique des thèmes
-- prise en charge de thèmes personnalisés *
+- prise en charge de thèmes personnalisés
+- prise en charge de plusieurs langues (*)
+- raccourcis claviers configurables (*)
+- statistiques d'utilisation (*)
 
 > \* il est possible que certaines de ces fonctionnalités soient encore en cours de développement au moment où vous lirez ces lignes
 
@@ -73,4 +76,16 @@ Compétences travaillées :
 
 - UX
 - manipulation des _stores_
-- gestion d'une machine à _états-transitions_
+- gestion d'une machine à _états-transitions_ (en cours de mise en place)
+
+## Thèmes
+
+Pour la gestion des thèmes j'ai suivi les mêmes principes que pour ce portfolio, à savoir une compatibilité complète avec les thèmes proposés par le groupement d'artistes <a href="https://100r.co/site/home.html" target="_blank">Hundred Rabbits</a> dont j'apprécie beaucoup les travaux et la philosophie de vie.
+
+_Later On_ propose par défaut deux thèmes, un sombre et un clair, qui changent au gré des paramètres du navigateur ou du système de l'utilisateur. Chacun de ces thèmes peut être remplacé par simple glisser-déposer de fichier de thème compatible.
+
+![exemple de thèmes clair et sombre](./themes-example.jpg)
+
+Le challenge lié à l'utilisation d'un set de couleurs externe et la non maîtrise des couleurs ainsi appliquées fut très intéressant à relever bien que consommateur en temps. Expérimentations, tâtonnement, tests ; je suis globalement satisfait du résultat. À voir ce que ça peut lever comme problématiques sur une application bien plus complexe !
+
+Pour en savoir plus : [exemple avec la gestion des thèmes du portfolio](/themes).
