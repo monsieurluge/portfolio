@@ -29,7 +29,7 @@ La plupart du temps la 2ème couleur de texte correspond à une couleur mettant 
 
 ![sandstorm](./sandstorm.svg)
 
-**sandstorm** est le thème sombre par défaut. Il est basé sur le thème du même nom que j'ai créé pour l'éditeur de code Sublime Text (voir [page correspondante](http://localhost:1234/projects/sandstorm)).
+**sandstorm** est le thème sombre par défaut. Il est basé sur le thème du même nom que j'ai créé pour l'éditeur de code Sublime Text (cf. [page du projet](/projects/sandstorm)).
 
 ![tape](./tape.svg)
 
