@@ -137,4 +137,8 @@
     .menu-button {
         display: none;
     }
+
+    #page-cover img {
+        width: var(--content-width);
+    }
 }
