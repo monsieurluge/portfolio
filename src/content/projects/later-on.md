@@ -3,7 +3,7 @@ author: 'monsieurluge'
 cover: './later-on.jpg'
 coverAlt: "image présentant l'application en cours d'utilisation"
 description: "application web d'organisation de tâches sur deux jours"
-lastUpdate: '2024-09-24'
+lastUpdate: '2024-12-11'
 layout: '../../layouts/ArticleLayout.astro'
 tags: ['application', 'vuejs']
 title: 'Later On'
@@ -43,6 +43,7 @@ Mais également, sans ordre de priorité :
 - attribution d'un _poids_ aux tâches
 - gestion automatique des thèmes
 - prise en charge de thèmes personnalisés
+- collections de tâches
 - prise en charge de plusieurs langues (*)
 - raccourcis claviers configurables (*)
 - statistiques d'utilisation (*)
@@ -59,11 +60,6 @@ J'ai fait le choix de ne pas utiliser de librairie tierce (comme <a href="https:
 
 La gestion d'une manipulation aussi banale que le glisser-déposer est plus complexe à mettre en oeuvre qu'il n'y paraît, surtout lorsque plusieurs zones de dépôt sont définies et proposent des comportements spécifiques. De plus, rendre la manipulation fluide et compréhensible pour l'utilisateur n'est pas chose aisée et demande de nombreux ajustements.
 
-Compétences travaillées :
-
-- UX
-- programmation évènementielle
-
 ### mode édition
 
 :information_source: Cette fonctionnalité est encore en cours de développement et va connaître quelques changements. D'ici sa stabilisisation cette section reste à l'état de brouillon.
@@ -72,11 +68,15 @@ Pour renommer ou supprimer une tâche il y a le mode "édition" disponible au cl
 
 Une fois encore, l'action est très banale. Cependant la réflexion nécessaire pour rendre l'expérience fluide pour l'utilisateur, ainsi que la gestion des états de l'application et des comportements associés ne sont pas anodines et peut mener rapidement à du code difficile à maintenir.
 
-Compétences travaillées :
+### design global
 
-- UX
-- manipulation des _stores_
-- gestion d'une machine à _états-transitions_ (en cours de mise en place)
+Je souhaitais proposer un design extrêmement épuré mais fonctionnel. N'étant pas UX designer cette contrainte pesa lourd dans la conception de l'interface, dans la création des composants et de leurs intéractions. Sans compter que le travail est loin d'être terminé...
+
+Voici quelques contraintes de design que j'ai suivies et auxquelles je me plie depuis le démarrage du projet :
+
+- largeur réduite et fixe pour le contenu principal, quelque soit la résolution de l'affichage
+- nombre d'éléments affichés en même temps limité à l'extrême
+- thème ultra personnalisable (cf. section ci-dessous)
 
 ## Thèmes
 
