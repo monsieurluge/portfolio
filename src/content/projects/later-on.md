@@ -3,7 +3,7 @@ author: 'monsieurluge'
 cover: './later-on.jpg'
 coverAlt: "image présentant l'application en cours d'utilisation"
 description: "application web d'organisation de tâches sur deux jours"
-lastUpdate: '2024-12-11'
+lastUpdate: '2025-07-25'
 layout: '../../layouts/ArticleLayout.astro'
 tags: ['application', 'vuejs']
 title: 'Later On'
@@ -21,7 +21,7 @@ Il y a TODO list, et TODO list.
 
 **Later On** est une application web de gestion de tâches ; ou "TODO list" pour faire plus simple.
 
-Je souhaitais pouvoir être en mesure de présenter un projet entièrement réalisé en VueJS, simple mais complet dans sa proposition. L'idée de partir sur un projet qui est régulièrement utilisé dans les tutoriels et ce quelque soit le langage ou framework m'a séduite et il me fallait en développer une version améliorée ; quelque chose qui fasse la différence entre l'apprentissage et l'expérience.
+Je souhaitais pouvoir être en mesure de présenter un projet entièrement réalisé en VueJS, simple mais complet dans sa proposition. L'idée de partir sur un projet qui est régulièrement utilisé dans les tutoriels et ce quelque soit le langage ou framework m'a séduite et il me fallait en développer une version qui me correspond.
 
 Mes sources d'inspiration ont été <a href="https://www.tomorrow.do" target="_blank">Do It Tomorrow</a> pour l'idée de reporter les tâches à plus tard, et <a href="https://aeriform.itch.io/tape" target="_blank">Tape</a> pour le design global. Deux applications que j'utilise fréquemment pour mes besoins personnels.
 
