@@ -30,6 +30,7 @@ p:nth-child(2) {
 
 p:nth-child(2) img {
     width: var(--content-width);
+    max-width: var(--content-width);
 }
 
 ul {

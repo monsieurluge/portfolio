@@ -21,6 +21,10 @@
         --nav-padding: 1rem;
     }
 
+    h1 {
+        padding-right: 1rem;
+    }
+
     html {
         font-size: 14px;
     }
@@ -107,6 +111,19 @@
 
     #menu.opened nav a.active {
         color: var(--f-med);
+    }
+
+    #page-cover img {
+        width: var(--content-width);
+    }
+
+    #page-description {
+        padding-left: var(--mobile-extra-spacing);
+        padding-right: var(--mobile-extra-spacing);
+    }
+
+    #profile {
+        padding: 0 var(--mobile-extra-spacing)
     }
 
     #themes-selector figcaption {

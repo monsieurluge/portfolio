@@ -141,4 +141,8 @@
     #page-cover img {
         width: var(--content-width);
     }
+
+    #page-description {
+        padding: 0;
+    }
 }
