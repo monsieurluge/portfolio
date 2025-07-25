@@ -1,4 +1,23 @@
-@media (min-width: 640px) {
+@media (min-width: 641px) {
+    :root {
+        --box-spacing: 1.6rem;
+        --content-extra-spacing: 0;
+        --content-spacing: 3rem;
+        --content-width: 600px;
+        --galery-extra-spacing: 0;
+        --list-line-height: 1.6rem;
+        --menu-font-size: 20px;
+        --menu-gap: 8px;
+        --portfolio-title-font-size: 30px;
+        --row-height: 30px;
+        --row-height-large: 40px;
+        --theme-button-size: 12px;
+    }
+
+    h1 {
+        padding: 0;
+    }
+
     main {
         position: relative;
         width: var(--content-width);
@@ -140,5 +159,9 @@
 
     #page-cover img {
         width: var(--content-width);
+    }
+
+    #page-description {
+        padding: 0;
     }
 }

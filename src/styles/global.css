@@ -14,8 +14,6 @@
     --heading-font: anonymous, monospace;
     --menu-font-size: 1.1rem;
     --menu-font: anonymous, monospace;
-    --nav-font-size: 1.1rem;
-    --nav-font: anonymous, monospace;
     --portfolio-title-font-size: 45px;
     --text-font: ubuntu, sans-serif;
     --title-font-size: 0.8rem;
@@ -23,16 +21,6 @@
     /* spacing and sizes */
     --border-radius-large: 16px;
     --border-radius-small: 3px;
-    --box-spacing: 1.6rem;
-    --content-spacing: 3rem;
-    --content-width: 600px;
-    --list-line-height: 1.6rem;
-    --menu-gap: 8px;
-    --mobile-extra-spacing: 0;
-    --mobile-galery-extra-spacing: 0;
-    --row-height: 24px;
-    --row-height-large: 40px;
-    --theme-button-size: 12px;
     --transition-duration: .3s;
 }
 
@@ -177,7 +165,6 @@ h1 {
     align-items: center;
     height: var(--row-height-large);
     margin: var(--row-height-large) 0;
-    padding: 0;
     font-family: var(--heading-font);
     font-size: var(--heading-font-size);
     font-weight: normal;

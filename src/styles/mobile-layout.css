@@ -3,12 +3,11 @@
         /* overrides */
         --box-spacing: 1.4rem 2rem;
         --content-spacing: 2rem;
-        --content-width: 100%;
+        --content-width: 100vw;
         --menu-font-size: 20px;
         --menu-gap: 14px;
-        --nav-font-size: 2rem;
-        --mobile-extra-spacing: 16px;
-        --mobile-galery-extra-spacing: 4px;
+        --content-extra-spacing: 16px;
+        --galery-extra-spacing: 4px;
         --portfolio-title-font-size: 30px;
         --row-height: 30px;
         --row-height-large: 40px;
@@ -17,8 +16,16 @@
         --menu-button-icon-size: 3rem;
         --menu-button-size: 4rem;
         --menu-padding: 20px;
+        --nav-font-size: 2rem;
         --nav-gap: .5rem;
         --nav-padding: 1rem;
+    }
+
+    h1 {
+        padding-bottom: 0;
+        padding-left: 0;
+        padding-right: 1rem;
+        padding-top: 0;
     }
 
     html {
@@ -107,6 +114,19 @@
 
     #menu.opened nav a.active {
         color: var(--f-med);
+    }
+
+    #page-cover img {
+        width: var(--content-width);
+    }
+
+    #page-description {
+        padding-left: var(--content-extra-spacing);
+        padding-right: var(--content-extra-spacing);
+    }
+
+    #profile {
+        padding: 0 var(--content-extra-spacing)
     }
 
     #themes-selector figcaption {
